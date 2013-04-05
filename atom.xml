@@ -1,157 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Yellow Feather Ltd</title>
-  <meta name="author" content="Yellow Feather Ltd">
-
-  
-  <meta name="description" content="If you&#8217;re reading this, you may have noticed that I have moved my web site over to Octopress.
-">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://yellowfeather.github.com/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Yellow Feather Ltd" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic|Istok+Web:400,400italic,700,700italic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-85823-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body>
-  <div id="header-container">
-    <div id="header">
-      <div class="wrapper">
-        <header role="banner"><hgroup>
-  <h1>
-    <a href="/">
-      <img src="/images/logo.png" class="standard">
-      <img src="/images/logo-retina.png" class="retina" width="175" height="75">
-    </a>
-  </h1>
-</hgroup>
-
-</header>
-        <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:yellowfeather.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/blog">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-      </div>
-    </div>
-  </div>
-  <div id="body"   >
-    <div id="main">
-      <div id="content">
-	<div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Yellow Feather Ltd]]></title>
+  <link href="http://yellowfeather.github.com/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.github.com/"/>
+  <updated>2013-04-05T02:12:53+01:00</updated>
+  <id>http://yellowfeather.github.com/</id>
+  <author>
+    <name><![CDATA[Yellow Feather Ltd]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2013/04/05/web-site-moved-to-octopress/">Web Site Moved to Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2013-04-05T01:14:00+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you&#8217;re reading this, you may have noticed that I have moved my web site over to Octopress.</p>
-</div>
+  <entry>
+    <title type="html"><![CDATA[Web site moved to Octopress]]></title>
+    <link href="http://yellowfeather.github.com/blog/2013/04/05/web-site-moved-to-octopress/"/>
+    <updated>2013-04-05T01:14:00+01:00</updated>
+    <id>http://yellowfeather.github.com/blog/2013/04/05/web-site-moved-to-octopress</id>
+    <content type="html"><![CDATA[<p>If you&#8217;re reading this, you may have noticed that I have moved my web site over to Octopress.</p>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/">Auto Incrementing Build Number in Xcode 4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-11T22:54:00+00:00" pubdate data-updated="true">Mar 11<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve recently been doing a bit of iOS development and have started using <a href="http://hockeyapp.net/" title="HockeyApp" target="_blank">HockeyApp</a> for distributing beta versions and collecting crash reports. Hockey requires that your builds have a unique version number, they have a great knowledge base article showing <a href="http://support.hockeyapp.net/kb/how-tos-faq/how-to-do-versioning-for-beta-versions-on-ios-or-mac" title="How to do versioning for beta versions on iOS or Mac" target="_blank"></a>. The only problem I found with their solution was that the file containing the build number needs to exist beforehand. So, here&#8217;s an update to the script to create the file if it doesn&#8217;t already exist:</p>
+  <entry>
+    <title type="html"><![CDATA[Auto incrementing build number in Xcode 4]]></title>
+    <link href="http://yellowfeather.github.com/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/"/>
+    <updated>2013-03-11T22:54:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve recently been doing a bit of iOS development and have started using <a href="http://hockeyapp.net/" title="HockeyApp" target="_blank">HockeyApp</a> for distributing beta versions and collecting crash reports. Hockey requires that your builds have a unique version number, they have a great knowledge base article showing <a href="http://support.hockeyapp.net/kb/how-tos-faq/how-to-do-versioning-for-beta-versions-on-ios-or-mac" title="How to do versioning for beta versions on iOS or Mac" target="_blank"></a>. The only problem I found with their solution was that the file containing the build number needs to exist beforehand. So, here&#8217;s an update to the script to create the file if it doesn&#8217;t already exist:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -173,42 +49,15 @@
 
 
 <p>Also, don&#8217;t forget to add the buildnumber.xcconfig file to your .gitignore.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/31/git-workflow-branch-per-feature/">Git Workflow – Branch Per Feature</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-31T00:00:00+01:00" pubdate data-updated="true">Aug 31<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Description of the git workflow and a branch per feature, extracted from: <a href="http://railsapps.github.com/tutorial-rails-prelaunch-signup.html">http://railsapps.github.com/tutorial-rails-prelaunch-signup.html</a></p>
+  <entry>
+    <title type="html"><![CDATA[Git Workflow – Branch per feature]]></title>
+    <link href="http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature/"/>
+    <updated>2012-08-31T00:00:00+01:00</updated>
+    <id>http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature</id>
+    <content type="html"><![CDATA[<p>Description of the git workflow and a branch per feature, extracted from: <a href="http://railsapps.github.com/tutorial-rails-prelaunch-signup.html">http://railsapps.github.com/tutorial-rails-prelaunch-signup.html</a></p>
 
 <p>When you are using git for version control, you can commit every time you save a file, even for the tiniest typo fixes. If only you will ever see your git commits, no one will care. But if you are working on a team, either commercially or as part of an open source project, you will drive your fellow programmers crazy if they try to follow your work and see such “granular” commits. Instead, get in the habit of creating a git branch each time you begin work to implement a feature. When your new feature is complete, merge the branch and “squash” the commits so your comrades see just one commit for the entire feature.</p>
 
@@ -247,81 +96,369 @@
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>git branch -D new-feature&lt;/pre&gt;
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[Userland SPI on the BeagleBone with Ubuntu]]></title>
+    <link href="http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
+    <updated>2012-03-26T00:00:00+01:00</updated>
+    <id>http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
+    <content type="html"><![CDATA[<p>For a project I&#8217;m working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.<!-- more --></p>
+
+<h2>Standard Ubuntu running on the BeagleBone</h2>
+
+<p>Reading <a title="Userland SPI working on BeagleBone - how best to share?" href="https://groups.google.com/forum/?fromgroups#!topic/beagleboard/GjWljMXyAJM">this</a> post on the BeagleBoard Google Group, led me to Brian Hensley&#8217;s blog post <a title="SPI working on the Beagleboard XM rev C" href="http://www.brianhensley.net/2012/02/spi-working-on-beagleboard-xm-rev-c.html">SPI working on the Beagleboard XM rev C</a>. With some minor modifications I got Ubuntu installed onto an SD card and running on my BeagleBone; first off download a stable release of Ubuntu for ARM:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>wget http://rcn-ee.net/deb/rootfs/oneiric/ubuntu-11.10-r6-minimal-armel.tar.xz
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then extract and change directory:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>tar xJf ubuntu-11.10-r6-minimal-armel.tar.xz
+</span><span class='line'><span class="nb">cd </span>ubuntu-11.10-r6-minimal-armel
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then run the script to install the files on the SD card (replace &#8216;/dev/sdd&#8217; with the drive name for your SD card):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo ./setup_sdcard.sh --mmc /dev/sdd --uboot bone
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once completed (approx 10 minutes), insert the SD card into your BeagleBone, and all being well, Ubuntu will be up running on your BeagleBone. Verify by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>uname -a
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which should give:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>Linux omap 3.2.0-psp6 <span class="c">#2 Thu Mar 22 10:36:44 GMT 2012 armv7l armv7l armv7l GNU/Linux</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>lsb_release -a
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>should give:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>No LSB modules are available.
+</span><span class='line'>Distributor ID: Ubuntu
+</span><span class='line'>Description:    Ubuntu 11.10
+</span><span class='line'>Release:        11.10
+</span><span class='line'>Codename:       oneiric
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Setup to enable rebuilding the Linux kernel</h2>
+
+
+<p>In order to enable userland SPI we need to be able to rebuild the kernel, so grab the Linux source:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Install the required tools and libs by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install gcc-4.4-arm-linux-gnueabi git ccache libncurses5-dev u-boot-tools lzma
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that I am running on Debian 6.04 in a VirtualBox VM and had to add the following sources to /etc/apt/sources.list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>deb http://www.emdebian.org/debian/ squeeze main
+</span><span class='line'>deb http://ftp.uk.debian.org/emdebian/toolchains squeeze main
+</span><span class='line'>deb http://emdebian.bytesatwork.ch/mirror/toolchains squeeze main
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As per <a href="http://elinux.org/BeagleBoardUbuntu#Demo_Image">these</a> instructions, clone Roberts git repo with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone git://github.com/RobertCNelson/linux-dev.git
+</span><span class='line'><span class="nb">cd </span>linux-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>switch to the am33x-v3.2 branch with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git checkout origin/am33x-v3.2 -b am33x-v3.2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now copy system.sh.sample to system.sh and update system.sh with the settings for your setup:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>cp system.sh.sample system.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For my setup I had to make the following changes to system.sh:</p>
+
+<p>uncomment line 14, change from:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#CC=arm-linux-gnueabi-</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">CC</span><span class="o">=</span>arm-linux-gnueabi-
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>at line 60 update the path to your linux source, change from:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#LINUX_GIT=~/linux-stable/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">LINUX_GIT</span><span class="o">=</span>~/linux-stable/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>uncomment line 70 to set the kernel entry point, change from:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#ZRELADDR=0x80008000</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">ZRELADDR</span><span class="o">=</span>0x80008000
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>uncomment line 80 to set the BUILD_UIMAGE flag, change from:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#BUILD_UIMAGE=1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">BUILD_UIMAGE</span><span class="o">=</span>1
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and finally at line 89 uncomment and set the path to the SD card, change from:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#MMC=/dev/sde</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">MMC</span><span class="o">=</span>/dev/sdd
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Build the Linux kernel</h2>
+
+
+<p>We can now run the buid_kernel.sh script which will clone the Linux source from our linux-stable directory, update to the latest version in git and apply the patches for running on the BeagleBone (this includes the userland SPI support patch :-) ).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>./build_kernel.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Whilst the script is running the Kernel Configuration screen will be shown, to enable SPI scroll down to the &#8216;Device Drivers&#8217; option, hit enter and scroll down to &#8216;SPI Support&#8217; and hit enter again, now make sure the following are selected:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="o">[</span>*<span class="o">]</span> Debug support <span class="k">for </span>SPI devices
+</span><span class='line'><span class="o">[</span>*<span class="o">]</span> McSPI driver <span class="k">for </span>OMAP
+</span><span class='line'><span class="o">[</span>*<span class="o">]</span> User mode SPI device driver support
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Test userland SPI</h2>
+
+
+<p>Once the build had completed, takes a few hours on my setup, there will be a uImage file in ~/linux-dev/deploy, install this to your SD card with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>./tools/load_uImage.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Install the SD card into the BeagleBone, and check that SPI is available by running :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>ls /dev/spi*
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>on the bone, which should give:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>/dev/spidev2.0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We can also run a further test by cross compiling spidev_test.c in the VM:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> ~/linux-stable
+</span><span class='line'>arm-linux-gnueabi-gcc Documentation/spi/spidev_test.c -o spitest
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Remove the SD card from the BeagleBone and transfer spitest to the SD card:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>cp spitest /media/rootfs/home/ubuntu/spitest
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>reinsert the SD card into the BeagleBone, connect pins 29 and 30 together on header P9, boot and run:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo ./spitest -D /dev/spidev2.0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All being well you should see:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>spi mode: 0
+</span><span class='line'>bits per word: 8
+</span><span class='line'>max speed: 500000 Hz <span class="o">(</span>500 KHz<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>FF FF FF FF FF FF
+</span><span class='line'>40 00 00 00 00 95
+</span><span class='line'>FF FF FF FF FF FF
+</span><span class='line'>FF FF FF FF FF FF
+</span><span class='line'>FF FF FF FF FF FF
+</span><span class='line'>DE AD BE EF BA AD
+</span><span class='line'>F0 0D
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next step is to connect the SPI to an nRF24L01+ module and get them talking!</p>
+
+<p>Many thanks to Robert C Nelson, Branden Hall and Craig Berscheidt.</p>
+
+<h2>Userland SPI support patch details</h2>
+
+
+<p>FYI: the userland SPI support patch is based on the <a href="https://groups.google.com/forum/#!topic/beagleboard/B3akyoyjwG4/discussion">patch</a> from Craig Berscheidt and makes the following changes to ~/linux-dev/KERNEL/arch/arm/mach-omap2/board-am335xevm.c:</p>
+
+<p>Adds the bone_am335x_slave_info struct:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>static struct spi_board_info bone_am335x_slave_info<span class="o">[]</span> <span class="o">=</span> <span class="o">{</span>
+</span><span class='line'>  <span class="o">{</span>
+</span><span class='line'>    .modalias      <span class="o">=</span> <span class="s2">&quot;spidev&quot;</span>,
+</span><span class='line'>    .irq           <span class="o">=</span> -1,
+</span><span class='line'>    .max_speed_hz  <span class="o">=</span> 12000000,
+</span><span class='line'>    .bus_num       <span class="o">=</span> 2,
+</span><span class='line'>    .chip_select   <span class="o">=</span> 0,
+</span><span class='line'>  <span class="o">}</span>,
+</span><span class='line'><span class="o">}</span>;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>adds an init function:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>/* setup beaglebone spi1 */
+</span><span class='line'>static void bone_spi1_init<span class="o">(</span>int evm_id, int profile<span class="o">)</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>  setup_pin_mux<span class="o">(</span>spi1_pin_mux<span class="o">)</span>;
+</span><span class='line'>  spi_register_board_info<span class="o">(</span>bone_am335x_slave_info, 
+</span><span class='line'>    ARRAY_SIZE<span class="o">(</span>bone_am335x_slave_info<span class="o">))</span>;
+</span><span class='line'>  <span class="k">return</span>;
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and adds the following line to beaglebone_dev_cfg by:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>  <span class="o">{</span>bone_spi1_init,  DEV_ON_BASEBOARD, PROFILE_ALL<span class="o">}</span>,
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/">Userland SPI on the BeagleBone With Ubuntu</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-26T00:00:00+01:00" pubdate data-updated="true">Mar 26<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For a project I&#8217;m working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/">Enhanced Query Objects With S#arp Architecture</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-03-21T00:00:00+00:00" pubdate data-updated="true">Mar 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;ve been using <a href="http://www.sharparchitecture.net/">S#arp Architecture</a> (and the Who Can Help Me structure) on a few projects for a while now and on the whole I&#8217;m very happy with it. However, Ayende&#8217;s recent post <a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="http://ayende.com/Blog/archive/2011/03/16/architecting-in-the-pit-of-doom-the-evils-of-the.aspx">Architecting in the pit of doom: The evils of the repository abstraction layer</a> hit a nerve, and got me thinking that maybe I&#8217;ve been applying the services (or tasks) / repository abstraction a bit too liberally.<a id="more"></a><a id="more-78"></a> The following day I saw this <a href="https://twitter.com/#!/hotgazpacho/status/48381984371777536">tweet</a> mentioning <a href="http://twitter.com/fabiomaulo">@fabiomaulo</a>&#8217;s <a href="http://fabiomaulo.blogspot.com/2010/07/enhanced-query-object.html">Enhanced Query Object</a> which looks just the ticket to solving this issue. So, I&#8217;ve updated my <a href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">SharpArchitecture-MultiTenant</a> project on GitHub to use enhanced query objects.</p>
+  <entry>
+    <title type="html"><![CDATA[Enhanced query objects with S#arp Architecture]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/"/>
+    <updated>2011-03-21T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been using <a href="http://www.sharparchitecture.net/">S#arp Architecture</a> (and the Who Can Help Me structure) on a few projects for a while now and on the whole I&#8217;m very happy with it. However, Ayende&#8217;s recent post <a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="http://ayende.com/Blog/archive/2011/03/16/architecting-in-the-pit-of-doom-the-evils-of-the.aspx">Architecting in the pit of doom: The evils of the repository abstraction layer</a> hit a nerve, and got me thinking that maybe I&#8217;ve been applying the services (or tasks) / repository abstraction a bit too liberally.<a id="more"></a><a id="more-78"></a> The following day I saw this <a href="https://twitter.com/#!/hotgazpacho/status/48381984371777536">tweet</a> mentioning <a href="http://twitter.com/fabiomaulo">@fabiomaulo</a>&#8217;s <a href="http://fabiomaulo.blogspot.com/2010/07/enhanced-query-object.html">Enhanced Query Object</a> which looks just the ticket to solving this issue. So, I&#8217;ve updated my <a href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">SharpArchitecture-MultiTenant</a> project on GitHub to use enhanced query objects.</p>
 
 <p>In the SharpArchitecture.MultiTenant.Data project I&#8217;ve created an NHibernate folder (and namespace) and added a base class for queries that provides access to the ISession (similar to the existing code in the Repository base class):</p>
 
@@ -488,42 +625,15 @@
 
 
 <p>I quite like this solution; the unnecessary layers of abstraction are removed and the queries are nicely encapsulated, if anything more complex is required (e.g. multiple data sources) then it is always possible to fall back to the services / repositories style as before.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/">Multi-tenancy on S#arp Architecture Revisited</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-09T00:00:00+00:00" pubdate data-updated="true">Feb 9<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Following my <a href="/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/"/>
+    <updated>2011-02-09T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited</id>
+    <content type="html"><![CDATA[<p>Following my <a href="http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
 
 <p>As mentioned in the discussion I have made some minor modifications to <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> to solve this problem and better support multi-tenancy. You can see the changes in the <a title="Enabling multi-tenancy" href="https://github.com/sharparchitecture/Sharp-Architecture/pull/1" target="_self">pull request</a>, but it looks like they are now included in the <a title="1.9.5 Released" href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/2091f202966654dc">latest release</a>.</p>
 
@@ -912,42 +1022,15 @@
 
 
 <p>I&#8217;ve update my <a title="SharpArchitecture-MultiTenant" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant" target="_self">sample application</a> on GitHub with these changes and to run against  S#arp Architecture v1.95.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/11/multi-tenancy-on-sharp-architecture/">Multi-tenancy on S#arp Architecture Revisited</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-11T00:00:00+00:00" pubdate data-updated="true">Jan 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Update</strong>: the code below is out of date, please see <a href="/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture/"/>
+    <updated>2011-01-11T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture</id>
+    <content type="html"><![CDATA[<p><strong>Update</strong>: the code below is out of date, please see <a href="http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
 
 <p>Recently I&#8217;ve been working on adding multi-tenancy to a web application based on the excellent <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> and thought I&#8217;d share what I have so far.<a id="more"></a><a id="more-24"></a></p>
 
@@ -1619,178 +1702,7 @@
 
 
 <p>A <a title="sample application" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">sample application</a> is available on GitHub.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/04/05/web-site-moved-to-octopress/">Web site moved to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/">Auto incrementing build number in Xcode 4</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/31/git-workflow-branch-per-feature/">Git Workflow – Branch per feature</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/">Userland SPI on the BeagleBone with Ubuntu</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/">Enhanced query objects with S#arp Architecture</a>
-      </li>
-    
-    <li class="post">
-      <a href="/blog/archives">More</a>
-    </li>
-  </ul>
-</section>
-<section>
-  <h1>Categories</h1>
-  <ul id="categories">
-    <li class='category'><a href='/blog/categories/beaglebone/'>BeagleBone (1)</a></li>
-<li class='category'><a href='/blog/categories/enhanced-query-objects/'>Enhanced Query Objects (1)</a></li>
-<li class='category'><a href='/blog/categories/multi-tenancy/'>Multi-tenancy (2)</a></li>
-<li class='category'><a href='/blog/categories/sharp-architecture/'>Sharp Architecture (3)</a></li>
-<li class='category'><a href='/blog/categories/xcode/'>Xcode (1)</a></li>
-<li class='category'><a href='/blog/categories/git/'>git (1)</a></li>
-<li class='category'><a href='/blog/categories/ios/'>iOS (1)</a></li>
-
-  </ul>
-</section>
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("yellowfeatheruk", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/yellowfeatheruk" class="twitter-follow-button" data-show-count="true">Follow @yellowfeatheruk</a>
-  
-</section>
-
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/yellowfeather">@yellowfeather</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'yellowfeather',
-            count: 5,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>My Pinboard</h1>
-  <ul id="pinboard_linkroll">Fetching linkroll&#8230;</ul>
-  <p><a href="http://pinboard.in/u:yellowfeather">My Pinboard Bookmarks &raquo;</a></p>
-</section>
-<script type="text/javascript">
-  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
-  var pinboard_user = "yellowfeather"; //id target for pinboard list
-  var pinboard_count = 3; //id target for pinboard list
-  (function(){
-    var pinboardInit = document.createElement('script');
-    pinboardInit.type = 'text/javascript';
-    pinboardInit.async = true;
-    pinboardInit.src = '/javascripts/pinboard.js';
-    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
-  })();
-</script>
-
-
-
-
-  
-</aside>
-
-      </div>
-    </div>
-    <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Yellow Feather Ltd -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
-</p>
-
-</footer>
-    
-
-<script type="text/javascript">
-      var disqus_shortname = 'yellowfeather';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+</feed>

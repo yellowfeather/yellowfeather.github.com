@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: BeagleBone | Yellow Feather Ltd]]></title>
+  <link href="http://yellowfeather.github.com/blog/categories/beaglebone/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.github.com/"/>
+  <updated>2013-04-05T02:12:53+01:00</updated>
+  <id>http://yellowfeather.github.com/</id>
+  <author>
+    <name><![CDATA[Yellow Feather Ltd]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Userland SPI on the BeagleBone with Ubuntu]]></title>
+    <link href="http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
+    <updated>2012-03-26T00:00:00+01:00</updated>
+    <id>http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
+    <content type="html"><![CDATA[<p>For a project I'm working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.<!-- more --></p>
+
+<h2>Standard Ubuntu running on the BeagleBone</h2>
+
+<p>Reading <a title="Userland SPI working on BeagleBone - how best to share?" href="https://groups.google.com/forum/?fromgroups#!topic/beagleboard/GjWljMXyAJM">this</a> post on the BeagleBoard Google Group, led me to Brian Hensley's blog post <a title="SPI working on the Beagleboard XM rev C" href="http://www.brianhensley.net/2012/02/spi-working-on-beagleboard-xm-rev-c.html">SPI working on the Beagleboard XM rev C</a>. With some minor modifications I got Ubuntu installed onto an SD card and running on my BeagleBone; first off download a stable release of Ubuntu for ARM:</p>
+
+<p><code>sh
+wget http://rcn-ee.net/deb/rootfs/oneiric/ubuntu-11.10-r6-minimal-armel.tar.xz
+</code></p>
+
+<p>And then extract and change directory:
+<code>sh
+tar xJf ubuntu-11.10-r6-minimal-armel.tar.xz
+cd ubuntu-11.10-r6-minimal-armel
+</code></p>
+
+<p>Then run the script to install the files on the SD card (replace '/dev/sdd' with the drive name for your SD card):
+<code>sh
+sudo ./setup_sdcard.sh --mmc /dev/sdd --uboot bone
+</code></p>
+
+<p>Once completed (approx 10 minutes), insert the SD card into your BeagleBone, and all being well, Ubuntu will be up running on your BeagleBone. Verify by running:
+<code>sh
+uname -a
+</code></p>
+
+<p>which should give:
+<code>sh
+Linux omap 3.2.0-psp6 #2 Thu Mar 22 10:36:44 GMT 2012 armv7l armv7l armv7l GNU/Linux
+</code></p>
+
+<p>and</p>
+
+<p><code>sh
+lsb_release -a
+</code></p>
+
+<p>should give:
+<code>sh
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 11.10
+Release:        11.10
+Codename:       oneiric
+</code></p>
+
+<h2>Setup to enable rebuilding the Linux kernel</h2>
+
+
+<p>In order to enable userland SPI we need to be able to rebuild the kernel, so grab the Linux source:
+<code>sh
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+</code></p>
+
+<p>Install the required tools and libs by running:
+<code>sh
+sudo apt-get install gcc-4.4-arm-linux-gnueabi git ccache libncurses5-dev u-boot-tools lzma
+</code></p>
+
+<p>Note that I am running on Debian 6.04 in a VirtualBox VM and had to add the following sources to /etc/apt/sources.list:</p>
+
+<p><code>sh
+deb http://www.emdebian.org/debian/ squeeze main
+deb http://ftp.uk.debian.org/emdebian/toolchains squeeze main
+deb http://emdebian.bytesatwork.ch/mirror/toolchains squeeze main
+</code></p>
+
+<p>As per <a href="http://elinux.org/BeagleBoardUbuntu#Demo_Image">these</a> instructions, clone Roberts git repo with:
+<code>sh
+git clone git://github.com/RobertCNelson/linux-dev.git
+cd linux-dev
+</code></p>
+
+<p>switch to the am33x-v3.2 branch with:
+<code>sh
+git checkout origin/am33x-v3.2 -b am33x-v3.2
+</code></p>
+
+<p>Now copy system.sh.sample to system.sh and update system.sh with the settings for your setup:
+<code>sh
+cp system.sh.sample system.sh
+</code></p>
+
+<p>For my setup I had to make the following changes to system.sh:</p>
+
+<p>uncomment line 14, change from:
+``` sh</p>
+
+<h1>CC=arm-linux-gnueabi-</h1>
+
+<p>```</p>
+
+<p>to:
+<code>sh
+CC=arm-linux-gnueabi-
+</code></p>
+
+<p>at line 60 update the path to your linux source, change from:
+``` sh</p>
+
+<h1>LINUX_GIT=~/linux-stable/</h1>
+
+<p>```</p>
+
+<p>to:
+<code>sh
+LINUX_GIT=~/linux-stable/
+</code></p>
+
+<p>uncomment line 70 to set the kernel entry point, change from:
+``` sh</p>
+
+<h1>ZRELADDR=0x80008000</h1>
+
+<p>```</p>
+
+<p>to:
+<code>sh
+ZRELADDR=0x80008000
+</code></p>
+
+<p>uncomment line 80 to set the BUILD_UIMAGE flag, change from:
+``` sh</p>
+
+<h1>BUILD_UIMAGE=1</h1>
+
+<p>```</p>
+
+<p>to:
+<code>sh
+BUILD_UIMAGE=1
+</code></p>
+
+<p>and finally at line 89 uncomment and set the path to the SD card, change from:
+``` sh</p>
+
+<h1>MMC=/dev/sde</h1>
+
+<p>```</p>
+
+<p>to:
+<code>sh
+MMC=/dev/sdd
+</code></p>
+
+<h2>Build the Linux kernel</h2>
+
+
+<p>We can now run the buid_kernel.sh script which will clone the Linux source from our linux-stable directory, update to the latest version in git and apply the patches for running on the BeagleBone (this includes the userland SPI support patch :-) ).
+<code>sh
+./build_kernel.sh
+</code></p>
+
+<p>Whilst the script is running the Kernel Configuration screen will be shown, to enable SPI scroll down to the 'Device Drivers' option, hit enter and scroll down to 'SPI Support' and hit enter again, now make sure the following are selected:
+<code>sh
+[*] Debug support for SPI devices
+[*] McSPI driver for OMAP
+[*] User mode SPI device driver support
+</code></p>
+
+<h2>Test userland SPI</h2>
+
+
+<p>Once the build had completed, takes a few hours on my setup, there will be a uImage file in ~/linux-dev/deploy, install this to your SD card with:
+<code>sh
+./tools/load_uImage.sh
+</code></p>
+
+<p>Install the SD card into the BeagleBone, and check that SPI is available by running :
+<code>sh
+ls /dev/spi*
+</code></p>
+
+<p>on the bone, which should give:
+<code>sh
+/dev/spidev2.0
+</code></p>
+
+<p>We can also run a further test by cross compiling spidev_test.c in the VM:</p>
+
+<p><code>sh
+cd ~/linux-stable
+arm-linux-gnueabi-gcc Documentation/spi/spidev_test.c -o spitest
+</code></p>
+
+<p>Remove the SD card from the BeagleBone and transfer spitest to the SD card:</p>
+
+<p><code>sh
+cp spitest /media/rootfs/home/ubuntu/spitest
+</code></p>
+
+<p>reinsert the SD card into the BeagleBone, connect pins 29 and 30 together on header P9, boot and run:</p>
+
+<p><code>sh
+sudo ./spitest -D /dev/spidev2.0
+</code></p>
+
+<p>All being well you should see:</p>
+
+<p>``` sh
+spi mode: 0
+bits per word: 8
+max speed: 500000 Hz (500 KHz)</p>
+
+<p>FF FF FF FF FF FF
+40 00 00 00 00 95
+FF FF FF FF FF FF
+FF FF FF FF FF FF
+FF FF FF FF FF FF
+DE AD BE EF BA AD
+F0 0D
+```</p>
+
+<p>Next step is to connect the SPI to an nRF24L01+ module and get them talking!</p>
+
+<p>Many thanks to Robert C Nelson, Branden Hall and Craig Berscheidt.</p>
+
+<h2>Userland SPI support patch details</h2>
+
+
+<p>FYI: the userland SPI support patch is based on the <a href="https://groups.google.com/forum/#!topic/beagleboard/B3akyoyjwG4/discussion">patch</a> from Craig Berscheidt and makes the following changes to ~/linux-dev/KERNEL/arch/arm/mach-omap2/board-am335xevm.c:</p>
+
+<p>Adds the bone_am335x_slave_info struct:
+``` sh
+static struct spi_board_info bone_am335x_slave_info[] = {
+  {</p>
+
+<pre><code>.modalias      = "spidev",
+.irq           = -1,
+.max_speed_hz  = 12000000,
+.bus_num       = 2,
+.chip_select   = 0,
+</code></pre>
+
+<p>  },
+};
+```</p>
+
+<p>adds an init function:
+``` sh
+/<em> setup beaglebone spi1 </em>/
+static void bone_spi1_init(int evm_id, int profile)
+{
+  setup_pin_mux(spi1_pin_mux);
+  spi_register_board_info(bone_am335x_slave_info, </p>
+
+<pre><code>ARRAY_SIZE(bone_am335x_slave_info));
+</code></pre>
+
+<p>  return;
+}
+```</p>
+
+<p>and adds the following line to beaglebone_dev_cfg by:
+<code>sh
+  {bone_spi1_init,  DEV_ON_BASEBOARD, PROFILE_ALL},
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

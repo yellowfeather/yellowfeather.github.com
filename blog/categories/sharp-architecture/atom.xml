@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Sharp Architecture | Yellow Feather Ltd]]></title>
+  <link href="http://yellowfeather.github.com/blog/categories/sharp-architecture/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.github.com/"/>
+  <updated>2013-04-05T02:12:53+01:00</updated>
+  <id>http://yellowfeather.github.com/</id>
+  <author>
+    <name><![CDATA[Yellow Feather Ltd]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Enhanced query objects with S#arp Architecture]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/"/>
+    <updated>2011-03-21T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture</id>
+    <content type="html"><![CDATA[<p>I've been using <a href="http://www.sharparchitecture.net/">S#arp Architecture</a> (and the Who Can Help Me structure) on a few projects for a while now and on the whole I'm very happy with it. However, Ayende's recent post <a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="http://ayende.com/Blog/archive/2011/03/16/architecting-in-the-pit-of-doom-the-evils-of-the.aspx">Architecting in the pit of doom: The evils of the repository abstraction layer</a> hit a nerve, and got me thinking that maybe I've been applying the services (or tasks) / repository abstraction a bit too liberally.<a id="more"></a><a id="more-78"></a> The following day I saw this <a href="https://twitter.com/#!/hotgazpacho/status/48381984371777536">tweet</a> mentioning <a href="http://twitter.com/fabiomaulo">@fabiomaulo</a>'s <a href="http://fabiomaulo.blogspot.com/2010/07/enhanced-query-object.html">Enhanced Query Object</a> which looks just the ticket to solving this issue. So, I've updated my <a href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">SharpArchitecture-MultiTenant</a> project on GitHub to use enhanced query objects.</p>
+
+<p>In the SharpArchitecture.MultiTenant.Data project I've created an NHibernate folder (and namespace) and added a base class for queries that provides access to the ISession (similar to the existing code in the Repository base class):
+``` csharp
+using NHibernate;
+using SharpArch.Data.NHibernate;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Data.NHibernate
+{
+  public class NHibernateQuery
+  {</p>
+
+<pre><code>protected virtual ISession Session
+{
+  get
+  {
+    var factoryKey = SessionFactoryKeyHelper.GetKey(this);
+    return NHibernateSession.CurrentFor(factoryKey);
+  }
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>As this project is enabled for multi-tenants I've also created a marker interface to indicate if the query is tenant specific:
+<code>csharp
+namespace SharpArchitecture.MultiTenant.Framework.Contracts
+{
+  public interface IMultiTenantQuery { }
+}
+</code></p>
+
+<p>In MultiTenantSessionFactoryKeyProvider, I've updated the GetKeyFrom method to test for implementation of the IMultiTenantQuery interface:
+``` csharp
+public string GetKeyFrom(object anObject)
+{
+  var type = anObject.GetType();
+  var isMultiTenant = type.IsImplementationOf&lt;IMultiTenantQuery&gt;() ||</p>
+
+<pre><code>                  type.IsImplementationOf&amp;lt;IMultiTenantRepository&amp;gt;() ||
+                  IsRepositoryForMultiTenantEntity(type);
+</code></pre>
+
+<p>  return isMultiTenant</p>
+
+<pre><code>? GetKey()
+: NHibernateSession.DefaultFactoryKey;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Now everything is in place to create some queries, so for the list of Customers I've created an interface for the query as below:
+<code>csharp
+public interface ICustomerListQuery : IMultiTenantQuery
+{
+  IPagination&amp;lt;CustomerViewModel&amp;gt; GetPagedList(int pageIndex, int pageSize);
+}
+</code></p>
+
+<p>and an implementation:
+``` csharp
+public class CustomerListQuery : NHibernateQuery, ICustomerListQuery
+{
+  public IPagination&lt;CustomerViewModel&gt; GetPagedList(int pageIndex, int pageSize)
+  {</p>
+
+<pre><code>var query = Session.QueryOver&amp;lt;Customer&amp;gt;()
+  .OrderBy(customer =&amp;gt; customer.Code).Asc;
+
+var countQuery = query.ToRowCountQuery();
+var totalCount = countQuery.FutureValue&amp;lt;int&amp;gt;();
+
+var firstResult = (pageIndex - 1) * pageSize;
+
+CustomerViewModel viewModel = null;
+var viewModels = query.SelectList(list =&amp;gt; list
+                        .Select(mission =&amp;gt; mission.Id).WithAlias(() =&amp;gt; viewModel.Id)
+                        .Select(mission =&amp;gt; mission.Code).WithAlias(() =&amp;gt; viewModel.Code)
+                        .Select(mission =&amp;gt; mission.Name).WithAlias(() =&amp;gt; viewModel.Name))
+  .TransformUsing(Transformers.AliasToBean(typeof(CustomerViewModel)))
+  .Skip(firstResult)
+  .Take(pageSize)
+  .Future&amp;lt;CustomerViewModel&amp;gt;();
+
+return new CustomPagination&amp;lt;CustomerViewModel&amp;gt;(viewModels, pageIndex, pageSize, totalCount.Value);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>As you can see, this code is using NHibernate projections and transforms to get a list of the required view models, bypassing the need for a data transfer object (DTO) and mappers. This is a trivial example, but in reality the query would be more complex and likely to flatten the object structure.</p>
+
+<p>Now the controller itself can use the query interface to get the paged list of view models:
+<code>csharp
+public ActionResult Index(int? page)
+{
+  var customers = _customerListQuery.GetPagedList(page ?? 1, DefaultPageSize);
+  var viewModel = new CustomerListViewModel { Customers = customers };
+  return View(viewModel);
+}
+</code></p>
+
+<p>I quite like this solution; the unnecessary layers of abstraction are removed and the queries are nicely encapsulated, if anything more complex is required (e.g. multiple data sources) then it is always possible to fall back to the services / repositories style as before.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/"/>
+    <updated>2011-02-09T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited</id>
+    <content type="html"><![CDATA[<p>Following my <a href="/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
+
+<p>As mentioned in the discussion I have made some minor modifications to <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> to solve this problem and better support multi-tenancy. You can see the changes in the <a title="Enabling multi-tenancy" href="https://github.com/sharparchitecture/Sharp-Architecture/pull/1" target="_self">pull request</a>, but it looks like they are now included in the <a title="1.9.5 Released" href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/2091f202966654dc">latest release</a>.</p>
+
+<p>The changes are very minor, and centre around the introduction of an interface, ISessionFactoryKeyProvider, so that it is possible to get the session factory key without having to use an attribute:
+``` csharp
+namespace SharpArch.Data.NHibernate
+{
+  public interface ISessionFactoryKeyProvider
+  {</p>
+
+<pre><code>/// &amp;lt;summary&amp;gt;
+/// Gets the session factory key.
+/// &amp;lt;/summary&amp;gt;
+/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;
+string GetKey();
+
+/// &amp;lt;summary&amp;gt;
+/// Gets the session factory key.
+/// &amp;lt;/summary&amp;gt;
+/// &amp;lt;param name="anObject"&amp;gt;An optional object that may have an attribute used to determine the session factory key.&amp;lt;/param&amp;gt;
+/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;
+string GetKeyFrom(object anObject);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>I've created a default implementation of this interface that just delegates getting the key from the existing SessionFactoryAttribute.
+``` csharp
+namespace SharpArch.Data.NHibernate
+{
+  /// &lt;summary&gt;
+  /// Implementation of &lt;see cref="ISessionFactoryKeyProvider" /&gt; that uses
+  /// the &lt;see cref="SessionFactoryAttribute" /&gt; to determine the session
+  /// factory key.
+  /// &lt;/summary&gt;
+  public class DefaultSessionFactoryKeyProvider : ISessionFactoryKeyProvider
+  {</p>
+
+<pre><code>public string GetKey()
+{
+  return NHibernateSession.DefaultFactoryKey;
+}
+
+/// &amp;lt;summary&amp;gt;
+/// Gets the session factory key.
+/// &amp;lt;/summary&amp;gt;
+/// &amp;lt;param name="anObject"&amp;gt;An object that may have the &amp;lt;see cref="SessionFactoryAttribute"/&amp;gt; applied.&amp;lt;/param&amp;gt;
+/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;
+public string GetKeyFrom(object anObject)
+{
+  return SessionFactoryAttribute.GetKeyFrom(anObject);
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>I've also added a helper class SessionFactoryKeyHelper:
+``` csharp
+using SharpArch.Core;</p>
+
+<p>namespace SharpArch.Data.NHibernate
+{
+  public static class SessionFactoryKeyHelper
+  {</p>
+
+<pre><code>public static string GetKey()
+{
+  var provider = SafeServiceLocator&amp;lt;ISessionFactoryKeyProvider&amp;gt;.GetService();
+  return provider.GetKey();
+}
+
+public static string GetKey(object anObject)
+{
+  var provider = SafeServiceLocator&amp;lt;ISessionFactoryKeyProvider&amp;gt;.GetService();
+  return provider.GetKeyFrom(anObject);
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Now whenever S#arp Architecture requires a session factory key we can use the helper class, rather than using SessionFactoryAttribute e.g. in the Repository implementation the code is changed from:
+``` csharp
+protected virtual ISession Session {
+  get {</p>
+
+<pre><code>string factoryKey = SessionFactoryAttribute.GetKeyFrom(this);
+return NHibernateSession.CurrentFor(factoryKey);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>to:
+``` csharp
+protected virtual ISession Session {
+  get {</p>
+
+<pre><code>string factoryKey = SessionFactoryKeyHelper.GetKey(this);
+return NHibernateSession.CurrentFor(factoryKey);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p><em>Note: this change to the Repository implementation means that the MultiTenantRepository class from my <a title="Multi-tenancy on S#arp Architecture" href="http://www.yellowfeather.co.uk/2011/01/multi-tenancy-on-sharp-architecture/" target="_self">previous post</a> is no longer required.</em></p>
+
+<p>Similar changes are also made to TransactionAttribute and EntityDuplicateChecker.</p>
+
+<p>If you do not need multi-tenancy, or are happy to use the existing TransactionAttribute to specify the session factory key, then you just need to register the DefaultSessionFactoryKeyProvider implementation in the container:
+<code>csharp
+container.AddComponent("sessionFactoryKeyProvider", 
+  typeof(ISessionFactoryKeyProvider),
+  typeof(DefaultSessionFactoryKeyProvider));
+</code></p>
+
+<p>But if you want to provide the session factory key by any other means, it is just a case of implementing and registering your implementation of ISessionFactoryKeyProvider.</p>
+
+<p>In my <a title="SharpArchitecture-MultiTenant" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant" target="_self">sample application</a> I've implemented it as below:
+``` csharp
+using System;
+using System.Linq;
+using SharpArch.Data.NHibernate;
+using SharpArchitecture.MultiTenant.Framework.Contracts;
+using SharpArchitecture.MultiTenant.Framework.Extensions;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Framework.NHibernate
+{
+  public class MultiTenantSessionFactoryKeyProvider : ISessionFactoryKeyProvider
+  {</p>
+
+<pre><code>private readonly ITenantContext _tenantContext;
+
+public MultiTenantSessionFactoryKeyProvider(ITenantContext tenantContext)
+{
+  _tenantContext = tenantContext;
+}
+
+public string GetKey()
+{
+  var key = _tenantContext.Key;
+  return string.IsNullOrEmpty(key) ? NHibernateSession.DefaultFactoryKey : key;
+}
+
+public string GetKeyFrom(object anObject)
+{
+  var type = anObject.GetType();
+  return IsMultiTenantRepository(type) || IsRepositoryForMultiTenantEntity(type)
+    ? GetKey()
+    : NHibernateSession.DefaultFactoryKey;
+}
+
+public bool IsMultiTenantRepository(Type type)
+{
+  return type.IsImplementationOf&amp;lt;IMultiTenantRepository&amp;gt;();
+}
+
+public bool IsRepositoryForMultiTenantEntity(Type type)
+{
+  if (!type.IsGenericType) {
+    return false;
+  }
+
+  var genericTypes = type.GetGenericArguments();
+  if (!genericTypes.Any()) {
+    return false;
+  }
+
+  var firstGenericType = genericTypes[0];
+  return firstGenericType.IsImplementationOf&amp;lt;IMultiTenantEntity&amp;gt;();
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>This makes use of a couple of marker interfaces IMultiTenantEntity and IMultiTenantRepository to decide whether we need to get the tenant, or the default, session factory key. Actually getting the tenant session factory key is accomplished by the implementation of ITenantContext.
+``` csharp
+using System.Web;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Web.Services
+{
+  public class TenantContext : ITenantContext
+  {</p>
+
+<pre><code>private const string DefaultStorageKey = "tenant-context-key";
+
+public string Key
+{
+  get
+  {
+    if (string.IsNullOrEmpty(StoredKey)) {
+      StoredKey = KeyFromRequest;
+    }
+    return StoredKey;
+  }
+
+  set { StoredKey = value; }
+}
+
+public string KeyFromRequest
+{
+  get
+  {
+    var host = HttpContext.Current.Request.Headers["HOST"];
+    var domains = host.Split('.');
+    return domains.Length &amp;gt;= 3 ? domains[0] : string.Empty;
+  }
+}
+
+protected string StoredKey
+{
+  get { return HttpContext.Current.Items[DefaultStorageKey] as string; }
+  set { HttpContext.Current.Items[DefaultStorageKey] = value; }
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>I've update my <a title="SharpArchitecture-MultiTenant" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant" target="_self">sample application</a> on GitHub with these changes and to run against  S#arp Architecture v1.95.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
+    <link href="http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture/"/>
+    <updated>2011-01-11T00:00:00+00:00</updated>
+    <id>http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture</id>
+    <content type="html"><![CDATA[<p><strong>Update</strong>: the code below is out of date, please see <a href="/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
+
+<p>Recently I've been working on adding multi-tenancy to a web application based on the excellent <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> and thought I'd share what I have so far.<a id="more"></a><a id="more-24"></a></p>
+
+<p>This implementation is mainly based on this <a title="Implementing A Multi-Tenant ASP.NET MVC Application with S#arp Architecture" href="http://thatstoday.com/a/557835">post</a> from Robert Johnson, and uses a separate database for each tenant, along with a master database to hold the details of the tenants (and anything else you wish). The main drawback with using separate databases is handling the migrations, I haven't yet got a solution to this but will look at a way of automating it using something like <a title="Migrator.Net" href="http://code.google.com/p/migratordotnet/">Migrator.Net</a> in a future post.</p>
+
+<p>All of the domain entities inherit from SharpArch.Core.DomainModel.Entity, and I use a marker interface to indicate which entities are part of the tenant domain model.
+<code>csharp
+namespace SharpArchitecture.MultiTenant.Core.Contracts
+{
+  /// &amp;lt;summary&amp;gt;
+  /// Marker interface for multi tenant entities.
+  /// &amp;lt;/summary&amp;gt;
+  public interface IMultiTenantEntity { }
+}
+</code></p>
+
+<p>We can now create our domain entities for the tenants:
+``` csharp
+using NHibernate.Validator.Constraints;
+using SharpArch.Core.DomainModel;
+using SharpArchitecture.MultiTenant.Core.Contracts;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Core
+{
+  public class Customer : Entity, IMultiTenantEntity
+  {</p>
+
+<pre><code>[DomainSignature]
+[NotNullNotEmpty]
+public virtual string Code { get; set; }
+
+[DomainSignature]
+[NotNullNotEmpty]
+public virtual string Name { get; set; }
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>And we create an entity, to be stored in the master database, to represent each tenant:
+``` csharp
+using SharpArch.Core.DomainModel;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Core
+{
+  public class Tenant : Entity
+  {</p>
+
+<pre><code>public virtual string Name { get; set; }
+
+[DomainSignature]
+public virtual string Domain { get; set; }
+
+public virtual string ConnectionString { get; set; }
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>The application will make use of a separate NHibernate session for each tenant, identified by a key. For the master database the default session will be used. So, we create an interface that will provide access to the key:
+``` csharp
+namespace SharpArchitecture.MultiTenant.Framework.Services
+{
+  public interface ITenantContext
+  {</p>
+
+<pre><code>string Key { get; set; }
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>And we implement this interface based on the method we choose to identify tenants, in this case based on the subdomain:
+``` csharp
+using System.Web;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Web.Services
+{
+  public class TenantContext : ITenantContext
+  {</p>
+
+<pre><code>private const string DefaultStorageKey = "tenant-context-key";
+
+public string Key
+{
+  get
+  {
+    if (string.IsNullOrEmpty(StoredKey)) {
+      StoredKey = KeyFromRequest;
+    }
+    return StoredKey;
+  }
+
+  set { StoredKey = value; }
+}
+
+public string KeyFromRequest
+{
+  get
+  {
+    var host = HttpContext.Current.Request.Headers["HOST"];
+    var domains = host.Split('.');
+    return domains.Length &amp;gt;= 3 ? domains[0] : string.Empty;
+  }
+}
+
+protected string StoredKey
+{
+  get { return HttpContext.Current.Items[DefaultStorageKey] as string; }
+  set { HttpContext.Current.Items[DefaultStorageKey] = value; }
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>If a different method of identifying tenants is required, say by a query string parameter, then it is just a case of providing a different implementation of ITenantContext.</p>
+
+<p>We can now create a multi-tenant repository that uses ITenantContext to select the NHibernate session based on the key:
+``` csharp
+using NHibernate;
+using SharpArch.Data.NHibernate;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Data.Repositories
+{
+  public class MultiTenantRepository&lt;T&gt; : Repository&lt;T&gt;
+  {</p>
+
+<pre><code>private readonly ITenantContext _tenantContext;
+
+public MultiTenantRepository(ITenantContext tenantContext)
+{
+  _tenantContext = tenantContext;
+}
+
+protected override ISession Session
+{
+  get
+  {
+    var key = _tenantContext.Key;
+    return string.IsNullOrEmpty(key) ? base.Session : NHibernateSession.CurrentFor(key);
+  }
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Next we need to create a repository interface:
+``` csharp
+using MvcContrib.Pagination;
+using SharpArch.Core.PersistenceSupport;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Core.RepositoryInterfaces
+{
+  public interface ICustomerRepository : IRepository&lt;Customer&gt;
+  {</p>
+
+<pre><code>IPagination&amp;lt;Customer&amp;gt; GetPagedList(int pageIndex, int pageSize);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>and implementation for our multi-tenant entities:
+``` csharp
+using MvcContrib.Pagination;
+using NHibernate.Criterion;
+using SharpArchitecture.MultiTenant.Core;
+using SharpArchitecture.MultiTenant.Core.RepositoryInterfaces;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Data.Repositories
+{
+  public class CustomerRepository : MultiTenantRepository&lt;Customer&gt;, ICustomerRepository
+  {</p>
+
+<pre><code>public CustomerRepository(ITenantContext tenantContext) : base(tenantContext)
+{
+}
+
+public IPagination&amp;lt;Customer&amp;gt; GetPagedList(int pageIndex, int pageSize)
+{
+  var firstResult = (pageIndex - 1) * pageSize;
+  var customers = Session.QueryOver&amp;lt;Customer&amp;gt;()
+    .OrderBy(customer =&amp;gt; customer.Code).Asc
+    .Skip(firstResult)
+    .Take(pageSize)
+    .Future&amp;lt;Customer&amp;gt;();
+
+  var totalCount = Session.QueryOver&amp;lt;Customer&amp;gt;()
+    .Select(Projections.Count&amp;lt;Customer&amp;gt;(customer =&amp;gt; customer.Code))
+    .FutureValue&amp;lt;int&amp;gt;();
+
+  return new CustomPagination&amp;lt;Customer&amp;gt;(customers, pageIndex, pageSize, totalCount.Value);
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Our controllers can now make use of ICustomerRepository without having to worry about any of the multi-tenancy issues.</p>
+
+<p>We also need to update the TransactionAttribute so that it makes use of the appropriate NHibernate session:
+``` csharp
+using Microsoft.Practices.ServiceLocation;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Framework.NHibernate
+{
+  public class TransactionAttribute : SharpArch.Web.NHibernate.TransactionAttribute
+  {</p>
+
+<pre><code>public TransactionAttribute()
+  : base(FactoryKey)
+{
+}
+
+protected static string FactoryKey
+{
+  get
+  {
+    var tenantContext = ServiceLocator.Current.GetInstance&amp;lt;ITenantContext&amp;gt;();
+    return tenantContext.Key;
+  }
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Next up, we need to update the initialisation in Global.asax.cs so that we create a session factory for the master database and also for each tenant:
+``` csharp</p>
+
+<pre><code>    private void InitializeNHibernateSession()
+    {
+      var mappingAssemblies = new [] { Server.MapPath("~/bin/SharpArchitecture.MultiTenant.Data.dll") };
+
+      var configFile = Server.MapPath("~/NHibernate.config");
+      NHibernateSession.Init(
+            webSessionStorage,
+            mappingAssemblies,
+            new AutoPersistenceModelGenerator().Generate(),
+            configFile);
+
+        var tenantConfigFile = Server.MapPath("~/NHibernate.tenant.config");
+        var multiTenantInitializer = ServiceLocator.Current.GetInstance&amp;lt;IMultiTenantInitializer&amp;gt;();
+        multiTenantInitializer.Initialize(mappingAssemblies, new MultiTenantAutoPersistenceModelGenerator(),  tenantConfigFile);
+    }
+</code></pre>
+
+<p>```</p>
+
+<p>In the code above, the standard NHibernate.config file is used to configure the master database. Whilst NHibernate.tenant.config, along with the connection string provided by the Tenant, is used to configure the tenant databases:
+``` csharp
+using SharpArch.Data.NHibernate.FluentNHibernate;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Framework.Services
+{
+  public interface IMultiTenantInitializer
+  {</p>
+
+<pre><code>void Initialize(string[] mappingAssemblies, IAutoPersistenceModelGenerator modelGenerator, string tenantConfigFile);
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>``` csharp
+using System.Collections.Generic;
+using NHibernate.Cfg;
+using SharpArch.Core.PersistenceSupport;
+using SharpArch.Data.NHibernate;
+using SharpArch.Data.NHibernate.FluentNHibernate;
+using SharpArchitecture.MultiTenant.Core;
+using SharpArchitecture.MultiTenant.Framework.Services;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Framework.NHibernate
+{
+  public class MultiTenantInitializer : IMultiTenantInitializer
+  {</p>
+
+<pre><code>private readonly IRepository&amp;lt;Tenant&amp;gt; _tenantRepository;
+
+public MultiTenantInitializer(IRepository&amp;lt;Tenant&amp;gt; tenantRepository)
+{
+  _tenantRepository = tenantRepository;
+}
+
+public void Initialize(string[] mappingAssemblies, IAutoPersistenceModelGenerator modelGenerator, string tenantConfigFile)
+{
+  var tenants = _tenantRepository.GetAll();
+  foreach (var tenant in tenants) {
+    Initialize(mappingAssemblies, modelGenerator, tenantConfigFile, tenant);
+  }
+}
+
+private static void Initialize(string[] mappingAssemblies, IAutoPersistenceModelGenerator modelGenerator, string tenantConfigFile, Tenant tenant)
+{
+  var properties = new Dictionary&amp;lt;string, string&amp;gt;
+                     {
+                       { "connection.connection_string", tenant.ConnectionString }
+                     };
+  AddTenantConfiguration(tenant.Domain, mappingAssemblies, modelGenerator, tenantConfigFile, properties);
+}
+
+private static Configuration AddTenantConfiguration(string factoryKey, string[] mappingAssemblies, IAutoPersistenceModelGenerator modelGenerator, string cfgFile, IDictionary&amp;lt;string, string&amp;gt; cfgProperties)
+{
+  return NHibernateSession.AddConfiguration(factoryKey,
+    mappingAssemblies,
+    modelGenerator.Generate(),
+    cfgFile,
+    cfgProperties,
+    null, null);
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>This code iterates through the list of tenants from the master database, setting the connection string and session factory key from the tenant properties and adds the configuration to NHibernate.</p>
+
+<p>All that is left is to generate the mappings. In AutoPersistenceModelGenerator we move the creation of the standard mapping configuration into a method so that it can be overridden:
+``` csharp</p>
+
+<pre><code>protected virtual IAutomappingConfiguration GetAutomappingConfiguration()
+{
+  return new AutomappingConfiguration();
+}
+</code></pre>
+
+<p>```</p>
+
+<p>And derive from AutoPersistenceModelGenerator to create our multi-tenant mapping configuration:
+``` csharp
+using FluentNHibernate.Automapping;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Data.NHibernateMaps
+{
+  public class MultiTenantAutoPersistenceModelGenerator : AutoPersistenceModelGenerator
+  {</p>
+
+<pre><code>protected override IAutomappingConfiguration GetAutomappingConfiguration()
+{
+  return new MultiTenantAutomappingConfiguration();
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>Then we add a method to AutomappingConfiguration to determine if a type is a multi-tenant entity (by checking to see if the type implements our IMultiTenantEntity interface):
+``` csharp</p>
+
+<pre><code>public bool IsMultiTenantEntity(Type type)
+{
+  return type.GetInterfaces().Any(x =&amp;gt; x == typeof(IMultiTenantEntity));
+}
+</code></pre>
+
+<p>```</p>
+
+<p>and update the ShouldMap method to only map entities that are not multi-tenant:
+``` csharp</p>
+
+<pre><code>public override bool ShouldMap(Type type)
+{
+  var isMultiTenantEntity = IsMultiTenantEntity(type);
+  var shouldMap = type.GetInterfaces().Any(x =&amp;gt;
+                                  x.IsGenericType &amp;amp;&amp;amp; x.GetGenericTypeDefinition() == typeof (IEntityWithTypedId&amp;lt;&amp;gt;) &amp;amp;&amp;amp;
+                                  !isMultiTenantEntity);
+  return shouldMap;
+}
+</code></pre>
+
+<p>```</p>
+
+<p>It is then a case of deriving from AutomappingConfiguration to map the multi-tenant entities:
+``` csharp
+using System;</p>
+
+<p>namespace SharpArchitecture.MultiTenant.Data.NHibernateMaps
+{
+  /// &lt;summary&gt;
+  ///
+  /// &lt;/summary&gt;
+  public class MultiTenantAutomappingConfiguration : AutomappingConfiguration
+  {</p>
+
+<pre><code>public override bool ShouldMap(Type type)
+{
+  var shouldMap = IsMultiTenantEntity(type);
+  return shouldMap;
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>A <a title="sample application" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">sample application</a> is available on GitHub.</p>
+]]></content>
+  </entry>
+  
+</feed>
