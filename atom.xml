@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Yellow Feather Ltd]]></title>
-  <link href="http://yellowfeather.github.com/atom.xml" rel="self"/>
-  <link href="http://yellowfeather.github.com/"/>
-  <updated>2013-04-05T02:12:53+01:00</updated>
-  <id>http://yellowfeather.github.com/</id>
+  <link href="http://yellowfeather.co.uk/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.co.uk/"/>
+  <updated>2013-04-05T02:13:57+01:00</updated>
+  <id>http://yellowfeather.co.uk/</id>
   <author>
     <name><![CDATA[Yellow Feather Ltd]]></name>
     
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[Web site moved to Octopress]]></title>
-    <link href="http://yellowfeather.github.com/blog/2013/04/05/web-site-moved-to-octopress/"/>
+    <link href="http://yellowfeather.co.uk/blog/2013/04/05/web-site-moved-to-octopress/"/>
     <updated>2013-04-05T01:14:00+01:00</updated>
-    <id>http://yellowfeather.github.com/blog/2013/04/05/web-site-moved-to-octopress</id>
+    <id>http://yellowfeather.co.uk/blog/2013/04/05/web-site-moved-to-octopress</id>
     <content type="html"><![CDATA[<p>If you&#8217;re reading this, you may have noticed that I have moved my web site over to Octopress.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Auto incrementing build number in Xcode 4]]></title>
-    <link href="http://yellowfeather.github.com/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/"/>
+    <link href="http://yellowfeather.co.uk/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/"/>
     <updated>2013-03-11T22:54:00+00:00</updated>
-    <id>http://yellowfeather.github.com/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4</id>
+    <id>http://yellowfeather.co.uk/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4</id>
     <content type="html"><![CDATA[<p>I&#8217;ve recently been doing a bit of iOS development and have started using <a href="http://hockeyapp.net/" title="HockeyApp" target="_blank">HockeyApp</a> for distributing beta versions and collecting crash reports. Hockey requires that your builds have a unique version number, they have a great knowledge base article showing <a href="http://support.hockeyapp.net/kb/how-tos-faq/how-to-do-versioning-for-beta-versions-on-ios-or-mac" title="How to do versioning for beta versions on iOS or Mac" target="_blank"></a>. The only problem I found with their solution was that the file containing the build number needs to exist beforehand. So, here&#8217;s an update to the script to create the file if it doesn&#8217;t already exist:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -54,9 +54,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git Workflow – Branch per feature]]></title>
-    <link href="http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature/"/>
+    <link href="http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature/"/>
     <updated>2012-08-31T00:00:00+01:00</updated>
-    <id>http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature</id>
+    <id>http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature</id>
     <content type="html"><![CDATA[<p>Description of the git workflow and a branch per feature, extracted from: <a href="http://railsapps.github.com/tutorial-rails-prelaunch-signup.html">http://railsapps.github.com/tutorial-rails-prelaunch-signup.html</a></p>
 
 <p>When you are using git for version control, you can commit every time you save a file, even for the tiniest typo fixes. If only you will ever see your git commits, no one will care. But if you are working on a team, either commercially or as part of an open source project, you will drive your fellow programmers crazy if they try to follow your work and see such “granular” commits. Instead, get in the habit of creating a git branch each time you begin work to implement a feature. When your new feature is complete, merge the branch and “squash” the commits so your comrades see just one commit for the entire feature.</p>
@@ -101,9 +101,9 @@
   
   <entry>
     <title type="html"><![CDATA[Userland SPI on the BeagleBone with Ubuntu]]></title>
-    <link href="http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
+    <link href="http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
     <updated>2012-03-26T00:00:00+01:00</updated>
-    <id>http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
+    <id>http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
     <content type="html"><![CDATA[<p>For a project I&#8217;m working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.<!-- more --></p>
 
 <h2>Standard Ubuntu running on the BeagleBone</h2>
@@ -455,9 +455,9 @@
   
   <entry>
     <title type="html"><![CDATA[Enhanced query objects with S#arp Architecture]]></title>
-    <link href="http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/"/>
+    <link href="http://yellowfeather.co.uk/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/"/>
     <updated>2011-03-21T00:00:00+00:00</updated>
-    <id>http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture</id>
+    <id>http://yellowfeather.co.uk/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been using <a href="http://www.sharparchitecture.net/">S#arp Architecture</a> (and the Who Can Help Me structure) on a few projects for a while now and on the whole I&#8217;m very happy with it. However, Ayende&#8217;s recent post <a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="http://ayende.com/Blog/archive/2011/03/16/architecting-in-the-pit-of-doom-the-evils-of-the.aspx">Architecting in the pit of doom: The evils of the repository abstraction layer</a> hit a nerve, and got me thinking that maybe I&#8217;ve been applying the services (or tasks) / repository abstraction a bit too liberally.<a id="more"></a><a id="more-78"></a> The following day I saw this <a href="https://twitter.com/#!/hotgazpacho/status/48381984371777536">tweet</a> mentioning <a href="http://twitter.com/fabiomaulo">@fabiomaulo</a>&#8217;s <a href="http://fabiomaulo.blogspot.com/2010/07/enhanced-query-object.html">Enhanced Query Object</a> which looks just the ticket to solving this issue. So, I&#8217;ve updated my <a href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">SharpArchitecture-MultiTenant</a> project on GitHub to use enhanced query objects.</p>
 
 <p>In the SharpArchitecture.MultiTenant.Data project I&#8217;ve created an NHibernate folder (and namespace) and added a base class for queries that provides access to the ISession (similar to the existing code in the Repository base class):</p>
@@ -630,10 +630,10 @@
   
   <entry>
     <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
-    <link href="http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/"/>
+    <link href="http://yellowfeather.co.uk/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/"/>
     <updated>2011-02-09T00:00:00+00:00</updated>
-    <id>http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited</id>
-    <content type="html"><![CDATA[<p>Following my <a href="http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
+    <id>http://yellowfeather.co.uk/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited</id>
+    <content type="html"><![CDATA[<p>Following my <a href="http://yellowfeather.co.uk/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
 
 <p>As mentioned in the discussion I have made some minor modifications to <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> to solve this problem and better support multi-tenancy. You can see the changes in the <a title="Enabling multi-tenancy" href="https://github.com/sharparchitecture/Sharp-Architecture/pull/1" target="_self">pull request</a>, but it looks like they are now included in the <a title="1.9.5 Released" href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/2091f202966654dc">latest release</a>.</p>
 
@@ -1027,10 +1027,10 @@
   
   <entry>
     <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
-    <link href="http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture/"/>
+    <link href="http://yellowfeather.co.uk/blog/2011/01/11/multi-tenancy-on-sharp-architecture/"/>
     <updated>2011-01-11T00:00:00+00:00</updated>
-    <id>http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture</id>
-    <content type="html"><![CDATA[<p><strong>Update</strong>: the code below is out of date, please see <a href="http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
+    <id>http://yellowfeather.co.uk/blog/2011/01/11/multi-tenancy-on-sharp-architecture</id>
+    <content type="html"><![CDATA[<p><strong>Update</strong>: the code below is out of date, please see <a href="http://yellowfeather.co.uk/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
 
 <p>Recently I&#8217;ve been working on adding multi-tenancy to a web application based on the excellent <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> and thought I&#8217;d share what I have so far.<a id="more"></a><a id="more-24"></a></p>
 

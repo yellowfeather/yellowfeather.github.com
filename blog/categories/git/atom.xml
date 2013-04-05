@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: git | Yellow Feather Ltd]]></title>
-  <link href="http://yellowfeather.github.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://yellowfeather.github.com/"/>
-  <updated>2013-04-05T02:12:53+01:00</updated>
-  <id>http://yellowfeather.github.com/</id>
+  <link href="http://yellowfeather.co.uk/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.co.uk/"/>
+  <updated>2013-04-05T02:13:57+01:00</updated>
+  <id>http://yellowfeather.co.uk/</id>
   <author>
     <name><![CDATA[Yellow Feather Ltd]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git Workflow – Branch per feature]]></title>
-    <link href="http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature/"/>
+    <link href="http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature/"/>
     <updated>2012-08-31T00:00:00+01:00</updated>
-    <id>http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature</id>
+    <id>http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature</id>
     <content type="html"><![CDATA[<p>Description of the git workflow and a branch per feature, extracted from: <a href="http://railsapps.github.com/tutorial-rails-prelaunch-signup.html">http://railsapps.github.com/tutorial-rails-prelaunch-signup.html</a></p>
 
 <p>When you are using git for version control, you can commit every time you save a file, even for the tiniest typo fixes. If only you will ever see your git commits, no one will care. But if you are working on a team, either commercially or as part of an open source project, you will drive your fellow programmers crazy if they try to follow your work and see such “granular” commits. Instead, get in the habit of creating a git branch each time you begin work to implement a feature. When your new feature is complete, merge the branch and “squash” the commits so your comrades see just one commit for the entire feature.</p>

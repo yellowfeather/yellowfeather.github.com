@@ -1,59 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://yellowfeather.co.uk/blog/2011/01/11/multi-tenancy-on-sharp-architecture/</loc>
+        <lastmod>2013-04-05T02:01:00+01:00</lastmod>
+    </url>
+    <url>
         <loc>
-            http://yellowfeather.github.com/blog/2011/01/11/multi-tenancy-on-sharp-architecture/
+            http://yellowfeather.co.uk/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/
         </loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://yellowfeather.github.com/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/
+            http://yellowfeather.co.uk/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/
         </loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://yellowfeather.github.com/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/
+            http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/
         </loc>
+        <lastmod>2013-04-05T02:01:00+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature/</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
         <loc>
-            http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/
+            http://yellowfeather.co.uk/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/
         </loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://yellowfeather.github.com/blog/2012/08/31/git-workflow-branch-per-feature/
-        </loc>
+        <loc>http://yellowfeather.co.uk/blog/2013/04/05/web-site-moved-to-octopress/</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://yellowfeather.github.com/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/
-        </loc>
+        <loc>http://yellowfeather.co.uk/blog/archives/</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
-        <loc>http://yellowfeather.github.com/blog/2013/04/05/web-site-moved-to-octopress/</loc>
+        <loc>http://yellowfeather.co.uk/blog/</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
-        <loc>http://yellowfeather.github.com/blog/archives/</loc>
+        <loc>http://yellowfeather.co.uk/</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
     <url>
-        <loc>http://yellowfeather.github.com/blog/</loc>
-        <lastmod>2013-04-05T02:01:00+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://yellowfeather.github.com/</loc>
-        <lastmod>2013-04-05T02:01:00+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://yellowfeather.github.com/robots.txt</loc>
+        <loc>http://yellowfeather.co.uk/robots.txt</loc>
         <lastmod>2013-04-05T02:01:00+01:00</lastmod>
     </url>
 </urlset>

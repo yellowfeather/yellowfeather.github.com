@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: BeagleBone | Yellow Feather Ltd]]></title>
-  <link href="http://yellowfeather.github.com/blog/categories/beaglebone/atom.xml" rel="self"/>
-  <link href="http://yellowfeather.github.com/"/>
-  <updated>2013-04-05T02:12:53+01:00</updated>
-  <id>http://yellowfeather.github.com/</id>
+  <link href="http://yellowfeather.co.uk/blog/categories/beaglebone/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.co.uk/"/>
+  <updated>2013-04-05T02:13:57+01:00</updated>
+  <id>http://yellowfeather.co.uk/</id>
   <author>
     <name><![CDATA[Yellow Feather Ltd]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Userland SPI on the BeagleBone with Ubuntu]]></title>
-    <link href="http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
+    <link href="http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/"/>
     <updated>2012-03-26T00:00:00+01:00</updated>
-    <id>http://yellowfeather.github.com/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
+    <id>http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu</id>
     <content type="html"><![CDATA[<p>For a project I'm working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.<!-- more --></p>
 
 <h2>Standard Ubuntu running on the BeagleBone</h2>
