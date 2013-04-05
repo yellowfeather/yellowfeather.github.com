@@ -4,7 +4,7 @@
   <title><![CDATA[Yellow Feather Ltd]]></title>
   <link href="http://yellowfeather.co.uk/atom.xml" rel="self"/>
   <link href="http://yellowfeather.co.uk/"/>
-  <updated>2013-04-05T02:31:45+01:00</updated>
+  <updated>2013-04-05T02:33:11+01:00</updated>
   <id>http://yellowfeather.co.uk/</id>
   <author>
     <name><![CDATA[Yellow Feather Ltd]]></name>
@@ -20,7 +20,7 @@
     <id>http://yellowfeather.co.uk/blog/2013/04/05/web-site-moved-to-octopress</id>
     <content type="html"><![CDATA[<p>If you&#8217;re reading this, you may have noticed that I have migrated my web site / blog from Wordpress to Octopress. I had to manually update some of the posts, and it took a day or so for the comments to become available in Disqus, otherwise it was pretty painless. The orginal URLs should be redirected to the new ones. If you notice any problems, please let me know.</p>
 
-<p>I guess that means i need to write a blog post or two!</p>
+<p>I guess that means I need to write a blog post or two!</p>
 ]]></content>
   </entry>
   
