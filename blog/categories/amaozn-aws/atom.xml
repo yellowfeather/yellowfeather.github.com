@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Amaozn AWS | Yellow Feather Ltd]]></title>
+  <link href="http://yellowfeather.co.uk/blog/categories/amaozn-aws/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.co.uk/"/>
+  <updated>2013-09-04T15:27:19+01:00</updated>
+  <id>http://yellowfeather.co.uk/</id>
+  <author>
+    <name><![CDATA[Yellow Feather Ltd]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Mono running on an Amazon Linux AMI]]></title>
+    <link href="http://yellowfeather.co.uk/blog/2013/09/04/getting-mono-running-on-amazon-linux-ami/"/>
+    <updated>2013-09-04T14:15:00+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/2013/09/04/getting-mono-running-on-amazon-linux-ami</id>
+    <content type="html"><![CDATA[<p>This morning I spent some time getting mono running on an Amazon AWS EC2 instance. The instance is running a standard Amaxon Linux AMI, and the mono packages aren't available in the default repos. After a bit of searching I found a <a href="https://forums.aws.amazon.com/message.jspa?messageID=343133#">post</a> on the Amazon Web Services Forum that pointed me in the right direction, and is pretty simple once you know how.</p>
+
+<p>First up, you need to modify <code>/etc/yum.repos.d/epel.repo</code>. Under the section marked <code>[epel]</code>, change <code>enabled=0</code> to <code>enabled=1</code> e.g.</p>
+
+<p>``` sh
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch</p>
+
+<h1>baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch</h1>
+
+<p>mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+```</p>
+
+<p>Now you can run:</p>
+
+<p><code>sh
+sudo yum install mono-core
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,7 +9,7 @@
   <meta name="author" content="Yellow Feather Ltd">
 
   
-  <meta name="description" content="If you&#8217;re reading this, you may have noticed that I have migrated my web site / blog from Wordpress to Octopress. I had to manually update some &hellip;">
+  <meta name="description" content="This morning I spent some time getting mono running on an Amazon AWS EC2 instance. The instance is running a standard Amaxon Linux AMI, and the mono &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +85,72 @@
       <div id="content">
 	<div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/04/getting-mono-running-on-amazon-linux-ami/">Getting Mono Running on an Amazon Linux AMI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-04T14:15:00+01:00" pubdate data-updated="true">Sep 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This morning I spent some time getting mono running on an Amazon AWS EC2 instance. The instance is running a standard Amaxon Linux AMI, and the mono packages aren&#8217;t available in the default repos. After a bit of searching I found a <a href="https://forums.aws.amazon.com/message.jspa?messageID=343133#">post</a> on the Amazon Web Services Forum that pointed me in the right direction, and is pretty simple once you know how.</p>
+
+<p>First up, you need to modify <code>/etc/yum.repos.d/epel.repo</code>. Under the section marked <code>[epel]</code>, change <code>enabled=0</code> to <code>enabled=1</code> e.g.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="o">[</span>epel<span class="o">]</span>
+</span><span class='line'><span class="nv">name</span><span class="o">=</span>Extra Packages <span class="k">for </span>Enterprise Linux 6 - <span class="nv">$basearch</span>
+</span><span class='line'><span class="c">#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch</span>
+</span><span class='line'><span class="nv">mirrorlist</span><span class="o">=</span>https://mirrors.fedoraproject.org/metalink?repo<span class="o">=</span>epel-6&amp;arch<span class="o">=</span><span class="nv">$basearch</span>
+</span><span class='line'><span class="nv">failovermethod</span><span class="o">=</span>priority
+</span><span class='line'><span class="nv">enabled</span><span class="o">=</span>1
+</span><span class='line'><span class="nv">gpgcheck</span><span class="o">=</span>1
+</span><span class='line'><span class="nv">gpgkey</span><span class="o">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you can run:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo yum install mono-core
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1640,6 +1706,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/04/getting-mono-running-on-amazon-linux-ami/">Getting Mono running on an Amazon Linux AMI</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/04/05/web-site-moved-to-octopress/">Web site moved to Octopress</a>
       </li>
     
@@ -1655,10 +1725,6 @@
         <a href="/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/">Userland SPI on the BeagleBone with Ubuntu</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/">Enhanced query objects with S#arp Architecture</a>
-      </li>
-    
     <li class="post">
       <a href="/blog/archives">More</a>
     </li>
@@ -1667,8 +1733,10 @@
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/beaglebone/'>BeagleBone (1)</a></li>
+    <li class='category'><a href='/blog/categories/amaozn-aws/'>Amaozn AWS (1)</a></li>
+<li class='category'><a href='/blog/categories/beaglebone/'>BeagleBone (1)</a></li>
 <li class='category'><a href='/blog/categories/enhanced-query-objects/'>Enhanced Query Objects (1)</a></li>
+<li class='category'><a href='/blog/categories/mono/'>Mono (1)</a></li>
 <li class='category'><a href='/blog/categories/multi-tenancy/'>Multi-tenancy (2)</a></li>
 <li class='category'><a href='/blog/categories/sharp-architecture/'>Sharp Architecture (3)</a></li>
 <li class='category'><a href='/blog/categories/xcode/'>Xcode (1)</a></li>
