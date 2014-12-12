@@ -8,7 +8,7 @@ alias: /2011/02/multi-tenancy-on-sharp-architecture-revisited/
 author: chrisr
 ---
 
-Following my [previous post](/blog/2011/01/11/multi-tenancy-on-sharp-architecture) some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a>
+Following my [previous post](/blog/multi-tenancy-on-sharp-architecture) some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a>
 
 As mentioned in the discussion I have made some minor modifications to <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> to solve this problem and better support multi-tenancy. You can see the changes in the <a title="Enabling multi-tenancy" href="https://github.com/sharparchitecture/Sharp-Architecture/pull/1" target="_self">pull request</a>, but it looks like they are now included in the <a title="1.9.5 Released" href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/2091f202966654dc">latest release</a>.
 
@@ -106,7 +106,7 @@ protected virtual ISession Session {
 }
 {% endhighlight %}
 
-<em>Note: this change to the Repository implementation means that the MultiTenantRepository class from my <a title="Multi-tenancy on S#arp Architecture" href="http://www.yellowfeather.co.uk/2011/01/multi-tenancy-on-sharp-architecture/" target="_self">previous post</a> is no longer required.</em>
+<em>Note: this change to the Repository implementation means that the MultiTenantRepository class from my <a title="Multi-tenancy on S#arp Architecture" href="http://www.yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture/" target="_self">previous post</a> is no longer required.</em>
 
 Similar changes are also made to TransactionAttribute and EntityDuplicateChecker.
 
