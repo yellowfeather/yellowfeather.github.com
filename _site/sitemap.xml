@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/welcome-to-the-new-website/</loc>
+    
+    <lastmod>2014-10-06T23:32:51+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/getting-mono-running-on-amazon-linux-ami/</loc>
+    
+    <lastmod>2013-09-04T14:15:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/web-site-moved-to-octopress/</loc>
+    
+    <lastmod>2013-04-05T01:14:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-4/</loc>
+    
+    <lastmod>2013-03-11T22:54:00+00:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/git-workflow-branch-per-feature/</loc>
+    
+    <lastmod>2012-08-31T00:00:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/userland-spi-on-the-beaglebone-with-ubuntu/</loc>
+    
+    <lastmod>2012-03-26T00:00:00+01:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/enhanced-query-objects-with-sharp-architecture/</loc>
+    
+    <lastmod>2011-03-21T00:00:00+00:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture-revisited/</loc>
+    
+    <lastmod>2011-02-09T00:00:00+00:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture/</loc>
+    
+    <lastmod>2011-01-11T12:00:00+00:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/about/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/contact/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/services/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/work/</loc>
+    <lastmod>2014-12-12T11:14:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2011/01/multi-tenancy-on-sharp-architecture/index.html</loc>
+    <lastmod>2014-12-10T21:17:54Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2011/02/multi-tenancy-on-sharp-architecture-revisited/index.html</loc>
+    <lastmod>2014-12-10T21:24:37Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2011/03/enhanced-query-objects-with-sharp-architecture/index.html</loc>
+    <lastmod>2014-12-10T21:25:24Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2012/03/userland-spi-on-the-beaglebone-with-ubuntu/index.html</loc>
+    <lastmod>2014-12-10T21:26:04Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2012/08/git-workflow-branch-per-feature/index.html</loc>
+    <lastmod>2014-12-10T21:27:03Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/2013/03/auto-incrementing-build-number-in-xcode-4/index.html</loc>
+    <lastmod>2014-12-10T21:27:52Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2011/01/11/multi-tenancy-on-sharp-architecture/index.html</loc>
+    <lastmod>2014-12-10T21:17:54Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2011/02/09/multi-tenancy-on-sharp-architecture-revisited/index.html</loc>
+    <lastmod>2014-12-10T21:24:37Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2011/03/21/enhanced-query-objects-with-sharp-architecture/index.html</loc>
+    <lastmod>2014-12-10T21:25:24Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2012/03/26/userland-spi-on-the-beaglebone-with-ubuntu/index.html</loc>
+    <lastmod>2014-12-10T21:26:04Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2012/08/31/git-workflow-branch-per-feature/index.html</loc>
+    <lastmod>2014-12-10T21:27:03Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2013/03/11/auto-incrementing-build-number-in-xcode-4/index.html</loc>
+    <lastmod>2014-12-10T21:27:52Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2013/04/05/web-site-moved-to-octopress/index.html</loc>
+    <lastmod>2014-12-10T21:31:27Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yellowfeather.co.uk/blog/2013/09/04/getting-mono-running-on-amazon-linux-ami/index.html</loc>
+    <lastmod>2014-12-10T21:32:05Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>

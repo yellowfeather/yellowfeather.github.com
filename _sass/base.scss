@@ -1,0 +1,137 @@
+a.button {
+  -webkit-font-smoothing: antialiased;
+  background-color: $base-button-color;
+  border-radius: $base-border-radius;
+  color: white;
+  display: inline-block;
+  font-size: $base-font-size;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $hover-button-color;
+    color: white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.yellowfeather-wrapper {
+  @include outer-container;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.intro-text {
+  $intro-text-width: 70%;
+
+  margin-bottom: 3em;
+  margin-top: 3em;
+  text-align: center;
+
+  h2 {
+    font-family: $serif;
+    font-weight: 100;
+    margin-bottom: .3em;
+
+    @include media($large-screen) {
+      font-size: 3em;
+      margin-bottom: .4em;
+    }
+  }
+
+  h3 {
+    background: $base-accent-color;
+    color: white;
+    display: inline-block;
+    font-size: .7em;
+    font-weight: 800;
+    margin-bottom: 2em;
+    padding: 3px 8px;
+    text-transform: uppercase;
+
+    @include media($large-screen) {
+      margin-bottom: 3.3em;
+    }
+  }
+
+  h4 {
+    color: lighten($base-font-color, 20);
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.4em;
+    margin: 0 auto 1em;
+
+    @include media($large-screen) {
+      font-size: 1.7em;
+      line-height: 1.35em;
+      margin: 0 auto 1em;
+      width: $intro-text-width;
+    }
+
+    a {
+      border-bottom: dashed 1px lighten($base-font-color, 20);
+      border-color: lighten($base-font-color, 20);
+      color: lighten($base-font-color, 20);
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: solid 1px lighten($base-font-color, 20);
+        color: black;
+      }
+    }
+
+  }
+
+  p {
+    margin: auto;
+
+    @include media($large-screen) {
+      width: $intro-text-width;
+    }
+
+    a {
+      font-size: .8em;
+      font-weight: 400;
+      text-transform: uppercase;
+
+      span {
+        font-size: 1.3em;
+        line-height: 0;
+      }
+    }
+  }
+}
+
+section.contact {
+  @include outer-container;
+  margin-top: 1em;
+
+  fieldset { @include span-columns(7); }
+  .contact-details {
+    @include span-columns(5);
+  }
+}
+
+
+ul.follow-us-links {
+  li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    a {
+      line-height: 40px;
+      margin-left: 1em;
+    }
+
+    svg {
+      float: left;
+    }
+  }
+}
+

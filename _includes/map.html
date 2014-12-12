@@ -1,0 +1,62 @@
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(51.068298, -1.321616);
+    var mapCenter = new google.maps.LatLng(51.074298, -1.321616);
+    var mapCanvas = document.getElementById('map_canvas');
+    var mapOptions = {
+      center: mapCenter,
+      zoom: 10,
+      scrollwheel: false,
+      draggable: true,
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    var map = new google.maps.Map(mapCanvas, mapOptions)
+
+    map.set('styles', [
+     {
+         featureType: 'landscape',
+         elementType: 'geometry',
+         stylers: [
+           { hue: '#ffff00' },
+           { saturation: 30 },
+           { lightness: 10}
+         ]
+       },
+    ]);
+
+    var contentString = 
+      '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Yellow Feather Ltd</h1>'+
+      '<div id="bodyContent">'+
+      '<p>23 Fairfield Road</p>'+
+      '<p>Wincherster</p>'+
+      '<p>Hampshire</p>'+
+      '<p>SO22 6SF</p>'+
+      '<p>United Kingdom</p>'+
+      '</div>'+
+      '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 300
+    });
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Yellow Feather Ltd'
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+

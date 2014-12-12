@@ -1,4 +1,7 @@
+---
+layout: null
+---
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://yellowfeather.co.uk/sitemap.xml 
+Sitemap: {{ site.url }}/sitemap.xml

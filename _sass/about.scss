@@ -1,0 +1,64 @@
+$side-image-background-top: #fff;
+$side-image-background-bottom: #fff;
+$side-image-border: 1px solid darken(transparentize($side-image-background-bottom, .8), 30);
+
+.about {
+  background: #F9F9F9;
+
+  @include media($large-screen) {
+    @include row(table);
+  }
+
+  .images-wrapper {
+    @include background(url('/img/logo-lg.svg'), linear-gradient($side-image-background-top, $side-image-background-bottom), no-repeat $side-image-background-top scroll);
+    background-color: $side-image-background-top;
+    background-size: contain;
+    display: block;
+    min-height: 12em;
+    padding: 3em;
+
+    @include media($large-screen) {
+      @include span-columns(4);
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+
+  .content {
+    @include span-columns(12);
+    padding: 1em 1em 4em 1em;
+
+    @include media($large-screen) {
+      @include span-columns(8);
+      padding: 4em 4em 8em 4em;
+    }
+  }
+
+  .content h1 {
+    margin-bottom: .9em;
+  }
+
+  .content h4 {
+    background: #BBB;
+    color: white;
+    display: inline-block;
+    font-size: .75em;
+    font-weight: 800;
+    margin-bottom: 1.3em;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+
+  .content p {
+    color: gray;
+    margin-bottom: 1em;
+  }
+  .content ul {
+    color: gray;
+    margin-bottom: 1em;
+    margin-left: 3em;
+    list-style-type: disc;
+  }
+  @include reset-display();
+}
+

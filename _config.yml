@@ -1,0 +1,30 @@
+# Site settings
+title: Yellow Feather Ltd
+email: chris@yellowfeather.com
+description: > # this means to ignore newlines until "baseurl:"
+  Professional web and mobile software developmensional web and mobile software development.
+  Winchester, Hampshire, United Kingdom
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yellowfeather.co.uk" # the base hostname & protocol for your site
+author: Yellow Feather Ltd
+
+twitter_username: yellowfeatheruk
+github_username:  yellowfeather
+
+# Disqus Comments
+disqus_short_name: yellowfeather
+disqus_show_comment_count: false
+
+# Google Analytics
+google_analytics_tracking_id: UA-85823-1
+
+# Build settings
+markdown: kramdown
+
+highlighter: pygments
+
+# Outputting
+permalink: /blog/:title/
+
+gems:
+  - jekyll-sitemap

@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Yellow Feather Ltd]]></title>
+  <link href="http://yellowfeather.co.uk/atom.xml" rel="self"/>
+  <link href="http://yellowfeather.co.uk/"/>
+  <updated>2014-12-12T11:14:36+00:00</updated>
+  <id>http://yellowfeather.co.uk/</id>
+  <author>
+    <name><![CDATA[Yellow Feather Ltd]]></name>
+    <email><![CDATA[chris@yellowfeather.com]]></email>
+  </author>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Welcome to the new website!]]></title>
+    <link href="http://yellowfeather.co.uk/blog/welcome-to-the-new-website/"/>
+    <updated>2014-10-06T23:32:51+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/welcome-to-the-new-website</id>
+    <content type="html"><![CDATA[<p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve --watch</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention <code>YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
+<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+
+<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Mono running on an Amazon Linux AMI]]></title>
+    <link href="http://yellowfeather.co.uk/blog/getting-mono-running-on-amazon-linux-ami/"/>
+    <updated>2013-09-04T14:15:00+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/getting-mono-running-on-amazon-linux-ami</id>
+    <content type="html"><![CDATA[<p>This morning I spent some time getting mono running on an Amazon AWS EC2 instance. The instance is running a standard Amaxon Linux AMI, and the mono packages aren’t available in the default repos. After a bit of searching I found a <a href="https://forums.aws.amazon.com/message.jspa?messageID=343133#">post</a> on the Amazon Web Services Forum that pointed me in the right direction, and is pretty simple once you know how.</p>
+
+<p>First up, you need to modify <code>/etc/yum.repos.d/epel.repo</code>. Under the section marked <code>[epel]</code>, change <code>enabled=0</code> to <code>enabled=1</code> e.g.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span>epel<span class="o">]</span>
+<span class="nv">name</span><span class="o">=</span>Extra Packages <span class="k">for</span> Enterprise Linux <span class="m">6</span> - <span class="nv">$basearch</span>
+<span class="c">#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch</span>
+<span class="nv">mirrorlist</span><span class="o">=</span>https://mirrors.fedoraproject.org/metalink?repo<span class="o">=</span>epel-6<span class="p">&amp;</span><span class="nv">arch</span><span class="o">=</span><span class="nv">$basearch</span>
+<span class="nv">failovermethod</span><span class="o">=</span>priority
+<span class="nv">enabled</span><span class="o">=</span>1
+<span class="nv">gpgcheck</span><span class="o">=</span>1
+<span class="nv">gpgkey</span><span class="o">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</code></pre></div>
+
+<p>Now you can run:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo yum install mono-core</code></pre></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Web site moved to Octopress]]></title>
+    <link href="http://yellowfeather.co.uk/blog/web-site-moved-to-octopress/"/>
+    <updated>2013-04-05T01:14:00+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/web-site-moved-to-octopress</id>
+    <content type="html"><![CDATA[<p>If you’re reading this, you may have noticed that I have migrated my web site / blog from Wordpress to Octopress. I had to manually update some of the posts, and it took a day or so for the comments to become available in Disqus, otherwise it was pretty painless. The orginal URLs should be redirected to the new ones. If you notice any problems, please let me know.</p>
+
+<p>I guess that means I need to write a blog post or two!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Auto incrementing build number in Xcode 4]]></title>
+    <link href="http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-4/"/>
+    <updated>2013-03-11T22:54:00+00:00</updated>
+    <id>http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-4</id>
+    <content type="html"><![CDATA[<p>I’ve recently been doing a bit of iOS development and have started using <a href="http://hockeyapp.net/" title="HockeyApp" target="_blank">HockeyApp</a> for distributing beta versions and collecting crash reports. Hockey requires that your builds have a unique version number, they have a great knowledge base article showing <a href="http://support.hockeyapp.net/kb/how-tos-faq/how-to-do-versioning-for-beta-versions-on-ios-or-mac" title="How to do versioning for beta versions on iOS or Mac" target="_blank">How to do versioning for beta versions on iOS or Mac</a>. The only problem I found with their solution was that the file containing the build number needs to exist beforehand. So, here’s an update to the script to create the file if it doesn’t already exist:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&quot;Updating build number...&quot;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$CONFIGURATION&quot;</span> <span class="o">==</span> <span class="s2">&quot;Release&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">set</span> -o noclobber
+    <span class="nb">echo</span> <span class="s2">&quot;Build file: ${SRCROOT}/buildnumber.xcconfig&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;BUILD_NUMBER = 0&quot;</span> &gt; <span class="s2">&quot;${SRCROOT}/buildnumber.xcconfig&quot;</span>
+    <span class="nb">set</span> +o noclobber
+    /usr/bin/perl -pe <span class="s1">&#39;s/(BUILD_NUMBER = )(\d+)/$1.($2+1)/eg&#39;</span> -i buildnumber.xcconfig
+<span class="k">fi</span></code></pre></div>
+
+<p>Also, don’t forget to add the buildnumber.xcconfig file to your .gitignore.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git Workflow – Branch per feature]]></title>
+    <link href="http://yellowfeather.co.uk/blog/git-workflow-branch-per-feature/"/>
+    <updated>2012-08-31T00:00:00+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/git-workflow-branch-per-feature</id>
+    <content type="html"><![CDATA[<p>Description of the git workflow and a branch per feature, extracted from: <a href="http://railsapps.github.com/tutorial-rails-prelaunch-signup.html">http://railsapps.github.com/tutorial-rails-prelaunch-signup.html</a></p>
+
+<p>When you are using git for version control, you can commit every time you save a file, even for the tiniest typo fixes. If only you will ever see your git commits, no one will care. But if you are working on a team, either commercially or as part of an open source project, you will drive your fellow programmers crazy if they try to follow your work and see such “granular” commits. Instead, get in the habit of creating a git branch each time you begin work to implement a feature. When your new feature is complete, merge the branch and “squash” the commits so your comrades see just one commit for the entire feature.</p>
+
+<p>Create a new git branch for this feature:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git checkout -b new-feature</code></pre></div>
+
+<p>The command creates a new branch named “new-feature” and switches to it, analogous to copying all your files to a new directory and moving to work in the new directory (though that is not really what happens with git).</p>
+
+<p>Commit changes to branch e.g.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git add .
+git commit -am <span class="s2">&quot;Implements &#39;new-feature&#39; feature&quot;</span></code></pre></div>
+
+<p>Once the new feature is complete, merge the working branch to “master” and squash the commits so you have just one commit for the entire feature:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git checkout master
+git merge --squash new-feature
+git commit -am <span class="s2">&quot;Implements &#39;new-feature&#39; feature&quot;</span></code></pre></div>
+
+<p>You can delete the working branch when you’re done:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git branch -D new-feature&lt;/pre&gt;</code></pre></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Userland SPI on the BeagleBone with Ubuntu]]></title>
+    <link href="http://yellowfeather.co.uk/blog/userland-spi-on-the-beaglebone-with-ubuntu/"/>
+    <updated>2012-03-26T00:00:00+01:00</updated>
+    <id>http://yellowfeather.co.uk/blog/userland-spi-on-the-beaglebone-with-ubuntu</id>
+    <content type="html"><![CDATA[<p>For a project I’m working on I want to get a BeagleBone talking to a <a title="nRF24L01+" href="http://iteadstudio.com/store/index.php?main_page=product_info&amp;cPath=7&amp;products_id=53&amp;zenid=p5ib08mkl698ilq9ch2eqfcf82">nRF24L01+</a> module. The first step is to get userland SPI access working on the BeagleBone, and last week I spent some time getting this going.<a id="more"></a><a id="more-112"></a> The good news is that Robert C Nelson has merged my <a title="Patch to add BeagleBone userspace SPI support" href="https://github.com/RobertCNelson/linux-dev/pull/3">patch</a> into his github repo <a href="https://github.com/RobertCNelson/linux-dev">linux-dev</a> and <strong>a prebuilt image is available to <a href="http://rcn-ee.net/deb/oneiric-armel/v3.2.0-psp6/">download</a></strong>. Read on to learn how to build from source and get details of the patch.<!-- more --></p>
+
+<h2 id="standard-ubuntu-running-on-the-beaglebone">Standard Ubuntu running on the BeagleBone</h2>
+<p>Reading <a title="Userland SPI working on BeagleBone - how best to share?" href="https://groups.google.com/forum/?fromgroups#!topic/beagleboard/GjWljMXyAJM">this</a> post on the BeagleBoard Google Group, led me to Brian Hensley’s blog post <a title="SPI working on the Beagleboard XM rev C" href="http://www.brianhensley.net/2012/02/spi-working-on-beagleboard-xm-rev-c.html">SPI working on the Beagleboard XM rev C</a>. With some minor modifications I got Ubuntu installed onto an SD card and running on my BeagleBone; first off download a stable release of Ubuntu for ARM:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://rcn-ee.net/deb/rootfs/oneiric/ubuntu-11.10-r6-minimal-armel.tar.xz</code></pre></div>
+
+<p>And then extract and change directory:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">tar xJf ubuntu-11.10-r6-minimal-armel.tar.xz
+<span class="nb">cd </span>ubuntu-11.10-r6-minimal-armel</code></pre></div>
+
+<p>Then run the script to install the files on the SD card (replace ‘/dev/sdd’ with the drive name for your SD card):</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo ./setup_sdcard.sh --mmc /dev/sdd --uboot bone</code></pre></div>
+
+<p>Once completed (approx 10 minutes), insert the SD card into your BeagleBone, and all being well, Ubuntu will be up running on your BeagleBone. Verify by running:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">uname -a</code></pre></div>
+
+<p>which should give:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">Linux omap 3.2.0-psp6 <span class="c">#2 Thu Mar 22 10:36:44 GMT 2012 armv7l armv7l armv7l GNU/Linux</span></code></pre></div>
+
+<p>and</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">lsb_release -a</code></pre></div>
+
+<p>should give:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 11.10
+Release:        11.10
+Codename:       oneiric</code></pre></div>
+
+<h2>Setup to enable rebuilding the Linux kernel</h2>
+<p>In order to enable userland SPI we need to be able to rebuild the kernel, so grab the Linux source:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git</code></pre></div>
+
+<p>Install the required tools and libs by running:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install gcc-4.4-arm-linux-gnueabi git ccache libncurses5-dev u-boot-tools lzma</code></pre></div>
+
+<p>Note that I am running on Debian 6.04 in a VirtualBox VM and had to add the following sources to /etc/apt/sources.list:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">deb http://www.emdebian.org/debian/ squeeze main
+deb http://ftp.uk.debian.org/emdebian/toolchains squeeze main
+deb http://emdebian.bytesatwork.ch/mirror/toolchains squeeze main</code></pre></div>
+
+<p>As per <a href="http://elinux.org/BeagleBoardUbuntu#Demo_Image">these</a> instructions, clone Roberts git repo with:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone git://github.com/RobertCNelson/linux-dev.git
+<span class="nb">cd </span>linux-dev</code></pre></div>
+
+<p>switch to the am33x-v3.2 branch with:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git checkout origin/am33x-v3.2 -b am33x-v3.2</code></pre></div>
+
+<p>Now copy system.sh.sample to system.sh and update system.sh with the settings for your setup:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">cp system.sh.sample system.sh</code></pre></div>
+
+<p>For my setup I had to make the following changes to system.sh:</p>
+
+<p>uncomment line 14, change from:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#CC=arm-linux-gnueabi-</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">CC</span><span class="o">=</span>arm-linux-gnueabi-</code></pre></div>
+
+<p>at line 60 update the path to your linux source, change from:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#LINUX_GIT=~/linux-stable/</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">LINUX_GIT</span><span class="o">=</span>~/linux-stable/</code></pre></div>
+
+<p>uncomment line 70 to set the kernel entry point, change from:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#ZRELADDR=0x80008000</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">ZRELADDR</span><span class="o">=</span>0x80008000</code></pre></div>
+
+<p>uncomment line 80 to set the BUILD_UIMAGE flag, change from:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#BUILD_UIMAGE=1</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">BUILD_UIMAGE</span><span class="o">=</span>1</code></pre></div>
+
+<p>and finally at line 89 uncomment and set the path to the SD card, change from:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#MMC=/dev/sde</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">MMC</span><span class="o">=</span>/dev/sdd</code></pre></div>
+
+<h2>Build the Linux kernel</h2>
+<p>We can now run the buid_kernel.sh script which will clone the Linux source from our linux-stable directory, update to the latest version in git and apply the patches for running on the BeagleBone (this includes the userland SPI support patch :-) ).</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./build_kernel.sh</code></pre></div>
+
+<p>Whilst the script is running the Kernel Configuration screen will be shown, to enable SPI scroll down to the ‘Device Drivers’ option, hit enter and scroll down to ‘SPI Support’ and hit enter again, now make sure the following are selected:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span>*<span class="o">]</span> Debug support <span class="k">for</span> SPI devices
+<span class="o">[</span>*<span class="o">]</span> McSPI driver <span class="k">for</span> OMAP
+<span class="o">[</span>*<span class="o">]</span> User mode SPI device driver support</code></pre></div>
+
+<h2>Test userland SPI</h2>
+<p>Once the build had completed, takes a few hours on my setup, there will be a uImage file in ~/linux-dev/deploy, install this to your SD card with:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./tools/load_uImage.sh</code></pre></div>
+
+<p>Install the SD card into the BeagleBone, and check that SPI is available by running :</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls /dev/spi*</code></pre></div>
+
+<p>on the bone, which should give:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">/dev/spidev2.0</code></pre></div>
+
+<p>We can also run a further test by cross compiling spidev_test.c in the VM:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/linux-stable
+arm-linux-gnueabi-gcc Documentation/spi/spidev_test.c -o spitest</code></pre></div>
+
+<p>Remove the SD card from the BeagleBone and transfer spitest to the SD card:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">cp spitest /media/rootfs/home/ubuntu/spitest</code></pre></div>
+
+<p>reinsert the SD card into the BeagleBone, connect pins 29 and 30 together on header P9, boot and run:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo ./spitest -D /dev/spidev2.0</code></pre></div>
+
+<p>All being well you should see:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">spi mode: 0
+bits per word: 8
+max speed: <span class="m">500000</span> Hz <span class="o">(</span><span class="m">500</span> KHz<span class="o">)</span>
+
+FF FF FF FF FF FF
+<span class="m">40</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 95
+FF FF FF FF FF FF
+FF FF FF FF FF FF
+FF FF FF FF FF FF
+DE AD BE EF BA AD
+F0 0D</code></pre></div>
+
+<p>Next step is to connect the SPI to an nRF24L01+ module and get them talking!</p>
+
+<p>Many thanks to Robert C Nelson, Branden Hall and Craig Berscheidt.</p>
+
+<h2>Userland SPI support patch details</h2>
+<p>FYI: the userland SPI support patch is based on the <a href="https://groups.google.com/forum/#!topic/beagleboard/B3akyoyjwG4/discussion">patch</a> from Craig Berscheidt and makes the following changes to ~/linux-dev/KERNEL/arch/arm/mach-omap2/board-am335xevm.c:</p>
+
+<p>Adds the bone_am335x_slave_info struct:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">static struct spi_board_info bone_am335x_slave_info<span class="o">[]</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="o">{</span>
+    .modalias      <span class="o">=</span> <span class="s2">&quot;spidev&quot;</span>,
+    .irq           <span class="o">=</span> -1,
+    .max_speed_hz  <span class="o">=</span> 12000000,
+    .bus_num       <span class="o">=</span> 2,
+    .chip_select   <span class="o">=</span> 0,
+  <span class="o">}</span>,
+<span class="o">}</span><span class="p">;</span></code></pre></div>
+
+<p>adds an init function:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">/* setup beaglebone spi1 */
+static void bone_spi1_init<span class="o">(</span>int evm_id, int profile<span class="o">)</span>
+<span class="o">{</span>
+  setup_pin_mux<span class="o">(</span>spi1_pin_mux<span class="o">)</span><span class="p">;</span>
+  spi_register_board_info<span class="o">(</span>bone_am335x_slave_info, 
+    ARRAY_SIZE<span class="o">(</span>bone_am335x_slave_info<span class="o">))</span><span class="p">;</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="o">}</span></code></pre></div>
+
+<p>and adds the following line to beaglebone_dev_cfg by:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">{</span>bone_spi1_init,	DEV_ON_BASEBOARD, PROFILE_ALL<span class="o">}</span>,</code></pre></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Enhanced query objects with S#arp Architecture]]></title>
+    <link href="http://yellowfeather.co.uk/blog/enhanced-query-objects-with-sharp-architecture/"/>
+    <updated>2011-03-21T00:00:00+00:00</updated>
+    <id>http://yellowfeather.co.uk/blog/enhanced-query-objects-with-sharp-architecture</id>
+    <content type="html"><![CDATA[<p>I’ve been using <a href="http://www.sharparchitecture.net/">S#arp Architecture</a> (and the Who Can Help Me structure) on a few projects for a while now and on the whole I’m very happy with it. However, Ayende’s recent post <a id="viewpost_ascx_TitleUrl" title="Title of this entry." href="http://ayende.com/Blog/archive/2011/03/16/architecting-in-the-pit-of-doom-the-evils-of-the.aspx">Architecting in the pit of doom: The evils of the repository abstraction layer</a> hit a nerve, and got me thinking that maybe I’ve been applying the services (or tasks) / repository abstraction a bit too liberally.<a id="more"></a><a id="more-78"></a> The following day I saw this <a href="https://twitter.com/#!/hotgazpacho/status/48381984371777536">tweet</a> mentioning <a href="http://twitter.com/fabiomaulo">@fabiomaulo</a>’s <a href="http://fabiomaulo.blogspot.com/2010/07/enhanced-query-object.html">Enhanced Query Object</a> which looks just the ticket to solving this issue. So, I’ve updated my <a href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">SharpArchitecture-MultiTenant</a> project on GitHub to use enhanced query objects.</p>
+
+<p>In the SharpArchitecture.MultiTenant.Data project I’ve created an NHibernate folder (and namespace) and added a base class for queries that provides access to the ISession (similar to the existing code in the Repository base class):</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">NHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Data.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">NHibernateQuery</span>
+  <span class="p">{</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="n">ISession</span> <span class="n">Session</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">factoryKey</span> <span class="p">=</span> <span class="n">SessionFactoryKeyHelper</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">CurrentFor</span><span class="p">(</span><span class="n">factoryKey</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>As this project is enabled for multi-tenants I’ve also created a marker interface to indicate if the query is tenant specific:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Contracts</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">IMultiTenantQuery</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>In MultiTenantSessionFactoryKeyProvider, I’ve updated the GetKeyFrom method to test for implementation of the IMultiTenantQuery interface:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">string</span> <span class="nf">GetKeyFrom</span><span class="p">(</span><span class="kt">object</span> <span class="n">anObject</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">type</span> <span class="p">=</span> <span class="n">anObject</span><span class="p">.</span><span class="n">GetType</span><span class="p">();</span>
+  <span class="kt">var</span> <span class="n">isMultiTenant</span> <span class="p">=</span> <span class="n">type</span><span class="p">.</span><span class="n">IsImplementationOf</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">IMultiTenantQuery</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;()</span> <span class="p">||</span>
+                      <span class="n">type</span><span class="p">.</span><span class="n">IsImplementationOf</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">IMultiTenantRepository</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;()</span> <span class="p">||</span>
+                      <span class="n">IsRepositoryForMultiTenantEntity</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">isMultiTenant</span>
+    <span class="p">?</span> <span class="n">GetKey</span><span class="p">()</span>
+    <span class="p">:</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">DefaultFactoryKey</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now everything is in place to create some queries, so for the list of Customers I’ve created an interface for the query as below:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">ICustomerListQuery</span> <span class="p">:</span> <span class="n">IMultiTenantQuery</span>
+<span class="p">{</span>
+  <span class="n">IPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">CustomerViewModel</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">GetPagedList</span><span class="p">(</span><span class="kt">int</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>and an implementation:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">CustomerListQuery</span> <span class="p">:</span> <span class="n">NHibernateQuery</span><span class="p">,</span> <span class="n">ICustomerListQuery</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="n">IPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">CustomerViewModel</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">GetPagedList</span><span class="p">(</span><span class="kt">int</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="n">Session</span><span class="p">.</span><span class="n">QueryOver</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;()</span>
+      <span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">customer</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">customer</span><span class="p">.</span><span class="n">Code</span><span class="p">).</span><span class="n">Asc</span><span class="p">;</span>
+
+    <span class="kt">var</span> <span class="n">countQuery</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">ToRowCountQuery</span><span class="p">();</span>
+    <span class="kt">var</span> <span class="n">totalCount</span> <span class="p">=</span> <span class="n">countQuery</span><span class="p">.</span><span class="n">FutureValue</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+
+    <span class="kt">var</span> <span class="n">firstResult</span> <span class="p">=</span> <span class="p">(</span><span class="n">pageIndex</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">*</span> <span class="n">pageSize</span><span class="p">;</span>
+
+    <span class="n">CustomerViewModel</span> <span class="n">viewModel</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">viewModels</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">SelectList</span><span class="p">(</span><span class="n">list</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">list</span>
+                            <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">mission</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">mission</span><span class="p">.</span><span class="n">Id</span><span class="p">).</span><span class="n">WithAlias</span><span class="p">(()</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">viewModel</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span>
+                            <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">mission</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">mission</span><span class="p">.</span><span class="n">Code</span><span class="p">).</span><span class="n">WithAlias</span><span class="p">(()</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">viewModel</span><span class="p">.</span><span class="n">Code</span><span class="p">)</span>
+                            <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">mission</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">mission</span><span class="p">.</span><span class="n">Name</span><span class="p">).</span><span class="n">WithAlias</span><span class="p">(()</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">viewModel</span><span class="p">.</span><span class="n">Name</span><span class="p">))</span>
+      <span class="p">.</span><span class="n">TransformUsing</span><span class="p">(</span><span class="n">Transformers</span><span class="p">.</span><span class="n">AliasToBean</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">CustomerViewModel</span><span class="p">)))</span>
+      <span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="n">firstResult</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">Take</span><span class="p">(</span><span class="n">pageSize</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">Future</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">CustomerViewModel</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CustomPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">CustomerViewModel</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">viewModels</span><span class="p">,</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">totalCount</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>As you can see, this code is using NHibernate projections and transforms to get a list of the required view models, bypassing the need for a data transfer object (DTO) and mappers. This is a trivial example, but in reality the query would be more complex and likely to flatten the object structure.</p>
+
+<p>Now the controller itself can use the query interface to get the paged list of view models:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Index</span><span class="p">(</span><span class="kt">int?</span> <span class="n">page</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">customers</span> <span class="p">=</span> <span class="n">_customerListQuery</span><span class="p">.</span><span class="n">GetPagedList</span><span class="p">(</span><span class="n">page</span> <span class="p">??</span> <span class="m">1</span><span class="p">,</span> <span class="n">DefaultPageSize</span><span class="p">);</span>
+  <span class="kt">var</span> <span class="n">viewModel</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CustomerListViewModel</span> <span class="p">{</span> <span class="n">Customers</span> <span class="p">=</span> <span class="n">customers</span> <span class="p">};</span>
+  <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="n">viewModel</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>I quite like this solution; the unnecessary layers of abstraction are removed and the queries are nicely encapsulated, if anything more complex is required (e.g. multiple data sources) then it is always possible to fall back to the services / repositories style as before.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture Revisited]]></title>
+    <link href="http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture-revisited/"/>
+    <updated>2011-02-09T00:00:00+00:00</updated>
+    <id>http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture-revisited</id>
+    <content type="html"><![CDATA[<p>Following my <a href="/blog/2011/01/11/multi-tenancy-on-sharp-architecture">previous post</a> some issues were pointed out with the implementation, the main one being that the correct repository implementation was not resolved from an IRepository&lt;T&gt; interface (see the Google Group <a title="use custom IRepository interface in SharpModelBinder Options " href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/3d8b190ada63a06b" target="_self">discussion</a> for more details).<a id="more"></a><a id="more-62"></a></p>
+
+<p>As mentioned in the discussion I have made some minor modifications to <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> to solve this problem and better support multi-tenancy. You can see the changes in the <a title="Enabling multi-tenancy" href="https://github.com/sharparchitecture/Sharp-Architecture/pull/1" target="_self">pull request</a>, but it looks like they are now included in the <a title="1.9.5 Released" href="http://groups.google.com/group/sharp-architecture/browse_thread/thread/2091f202966654dc">latest release</a>.</p>
+
+<p>The changes are very minor, and centre around the introduction of an interface, ISessionFactoryKeyProvider, so that it is possible to get the session factory key without having to use an attribute:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">SharpArch.Data.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">ISessionFactoryKeyProvider</span>
+  <span class="p">{</span>
+    <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+    <span class="c1">/// Gets the session factory key.</span>
+    <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+    <span class="c1">/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;</span>
+    <span class="kt">string</span> <span class="nf">GetKey</span><span class="p">();</span>
+
+    <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+    <span class="c1">/// Gets the session factory key.</span>
+    <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+    <span class="c1">/// &amp;lt;param name=&quot;anObject&quot;&amp;gt;An optional object that may have an attribute used to determine the session factory key.&amp;lt;/param&amp;gt;</span>
+    <span class="c1">/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;</span>
+    <span class="kt">string</span> <span class="nf">GetKeyFrom</span><span class="p">(</span><span class="kt">object</span> <span class="n">anObject</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>I’ve created a default implementation of this interface that just delegates getting the key from the existing SessionFactoryAttribute.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">SharpArch.Data.NHibernate</span>
+<span class="p">{</span>
+  <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+  <span class="c1">/// Implementation of &amp;lt;see cref=&quot;ISessionFactoryKeyProvider&quot; /&amp;gt; that uses</span>
+  <span class="c1">/// the &amp;lt;see cref=&quot;SessionFactoryAttribute&quot; /&amp;gt; to determine the session</span>
+  <span class="c1">/// factory key.</span>
+  <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">DefaultSessionFactoryKeyProvider</span> <span class="p">:</span> <span class="n">ISessionFactoryKeyProvider</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetKey</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">DefaultFactoryKey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+    <span class="c1">/// Gets the session factory key.</span>
+    <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+    <span class="c1">/// &amp;lt;param name=&quot;anObject&quot;&amp;gt;An object that may have the &amp;lt;see cref=&quot;SessionFactoryAttribute&quot;/&amp;gt; applied.&amp;lt;/param&amp;gt;</span>
+    <span class="c1">/// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetKeyFrom</span><span class="p">(</span><span class="kt">object</span> <span class="n">anObject</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">SessionFactoryAttribute</span><span class="p">.</span><span class="n">GetKeyFrom</span><span class="p">(</span><span class="n">anObject</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>I’ve also added a helper class SessionFactoryKeyHelper:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">SharpArch.Core</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArch.Data.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">SessionFactoryKeyHelper</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">GetKey</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">provider</span> <span class="p">=</span> <span class="n">SafeServiceLocator</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">ISessionFactoryKeyProvider</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;.</span><span class="n">GetService</span><span class="p">();</span>
+      <span class="k">return</span> <span class="n">provider</span><span class="p">.</span><span class="n">GetKey</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">GetKey</span><span class="p">(</span><span class="kt">object</span> <span class="n">anObject</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">provider</span> <span class="p">=</span> <span class="n">SafeServiceLocator</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">ISessionFactoryKeyProvider</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;.</span><span class="n">GetService</span><span class="p">();</span>
+      <span class="k">return</span> <span class="n">provider</span><span class="p">.</span><span class="n">GetKeyFrom</span><span class="p">(</span><span class="n">anObject</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now whenever S#arp Architecture requires a session factory key we can use the helper class, rather than using SessionFactoryAttribute e.g. in the Repository implementation the code is changed from:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">protected</span> <span class="k">virtual</span> <span class="n">ISession</span> <span class="n">Session</span> <span class="p">{</span>
+  <span class="k">get</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">factoryKey</span> <span class="p">=</span> <span class="n">SessionFactoryAttribute</span><span class="p">.</span><span class="n">GetKeyFrom</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">CurrentFor</span><span class="p">(</span><span class="n">factoryKey</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>to:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">protected</span> <span class="k">virtual</span> <span class="n">ISession</span> <span class="n">Session</span> <span class="p">{</span>
+  <span class="k">get</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">factoryKey</span> <span class="p">=</span> <span class="n">SessionFactoryKeyHelper</span><span class="p">.</span><span class="n">GetKey</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">CurrentFor</span><span class="p">(</span><span class="n">factoryKey</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p><em>Note: this change to the Repository implementation means that the MultiTenantRepository class from my <a title="Multi-tenancy on S#arp Architecture" href="http://www.yellowfeather.co.uk/2011/01/multi-tenancy-on-sharp-architecture/" target="_self">previous post</a> is no longer required.</em></p>
+
+<p>Similar changes are also made to TransactionAttribute and EntityDuplicateChecker.</p>
+
+<p>If you do not need multi-tenancy, or are happy to use the existing TransactionAttribute to specify the session factory key, then you just need to register the DefaultSessionFactoryKeyProvider implementation in the container:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">container</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">(</span><span class="s">&quot;sessionFactoryKeyProvider&quot;</span><span class="p">,</span> 
+  <span class="k">typeof</span><span class="p">(</span><span class="n">ISessionFactoryKeyProvider</span><span class="p">),</span>
+  <span class="k">typeof</span><span class="p">(</span><span class="n">DefaultSessionFactoryKeyProvider</span><span class="p">));</span></code></pre></div>
+
+<p>But if you want to provide the session factory key by any other means, it is just a case of implementing and registering your implementation of ISessionFactoryKeyProvider.</p>
+
+<p>In my <a title="SharpArchitecture-MultiTenant" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant" target="_self">sample application</a> I’ve implemented it as below:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Contracts</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Extensions</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">MultiTenantSessionFactoryKeyProvider</span> <span class="p">:</span> <span class="n">ISessionFactoryKeyProvider</span>
+  <span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">ITenantContext</span> <span class="n">_tenantContext</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">MultiTenantSessionFactoryKeyProvider</span><span class="p">(</span><span class="n">ITenantContext</span> <span class="n">tenantContext</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">_tenantContext</span> <span class="p">=</span> <span class="n">tenantContext</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetKey</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">key</span> <span class="p">=</span> <span class="n">_tenantContext</span><span class="p">.</span><span class="n">Key</span><span class="p">;</span>
+      <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="p">?</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">DefaultFactoryKey</span> <span class="p">:</span> <span class="n">key</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">GetKeyFrom</span><span class="p">(</span><span class="kt">object</span> <span class="n">anObject</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">type</span> <span class="p">=</span> <span class="n">anObject</span><span class="p">.</span><span class="n">GetType</span><span class="p">();</span>
+      <span class="k">return</span> <span class="nf">IsMultiTenantRepository</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="p">||</span> <span class="n">IsRepositoryForMultiTenantEntity</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+        <span class="p">?</span> <span class="n">GetKey</span><span class="p">()</span>
+        <span class="p">:</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">DefaultFactoryKey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsMultiTenantRepository</span><span class="p">(</span><span class="n">Type</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">IsImplementationOf</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">IMultiTenantRepository</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsRepositoryForMultiTenantEntity</span><span class="p">(</span><span class="n">Type</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(!</span><span class="n">type</span><span class="p">.</span><span class="n">IsGenericType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kt">var</span> <span class="n">genericTypes</span> <span class="p">=</span> <span class="n">type</span><span class="p">.</span><span class="n">GetGenericArguments</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(!</span><span class="n">genericTypes</span><span class="p">.</span><span class="n">Any</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kt">var</span> <span class="n">firstGenericType</span> <span class="p">=</span> <span class="n">genericTypes</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+      <span class="k">return</span> <span class="n">firstGenericType</span><span class="p">.</span><span class="n">IsImplementationOf</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">IMultiTenantEntity</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This makes use of a couple of marker interfaces IMultiTenantEntity and IMultiTenantRepository to decide whether we need to get the tenant, or the default, session factory key. Actually getting the tenant session factory key is accomplished by the implementation of ITenantContext.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Web.Services</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">TenantContext</span> <span class="p">:</span> <span class="n">ITenantContext</span>
+  <span class="p">{</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">DefaultStorageKey</span> <span class="p">=</span> <span class="s">&quot;tenant-context-key&quot;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Key</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">StoredKey</span><span class="p">))</span> <span class="p">{</span>
+          <span class="n">StoredKey</span> <span class="p">=</span> <span class="n">KeyFromRequest</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">StoredKey</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">set</span> <span class="p">{</span> <span class="n">StoredKey</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">KeyFromRequest</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">host</span> <span class="p">=</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Headers</span><span class="p">[</span><span class="s">&quot;HOST&quot;</span><span class="p">];</span>
+        <span class="kt">var</span> <span class="n">domains</span> <span class="p">=</span> <span class="n">host</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">domains</span><span class="p">.</span><span class="n">Length</span> <span class="p">&amp;</span><span class="n">gt</span><span class="p">;=</span> <span class="m">3</span> <span class="p">?</span> <span class="n">domains</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">:</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="kt">string</span> <span class="n">StoredKey</span>
+    <span class="p">{</span>
+      <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">DefaultStorageKey</span><span class="p">]</span> <span class="k">as</span> <span class="kt">string</span><span class="p">;</span> <span class="p">}</span>
+      <span class="k">set</span> <span class="p">{</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">DefaultStorageKey</span><span class="p">]</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>I’ve update my <a title="SharpArchitecture-MultiTenant" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant" target="_self">sample application</a> on GitHub with these changes and to run against  S#arp Architecture v1.95.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-tenancy on S#arp Architecture]]></title>
+    <link href="http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture/"/>
+    <updated>2011-01-11T12:00:00+00:00</updated>
+    <id>http://yellowfeather.co.uk/blog/multi-tenancy-on-sharp-architecture</id>
+    <content type="html"><![CDATA[<p><strong>Update</strong>: the code below is out of date, please see <a href="/blog/multi-tenancy-on-sharp-architecture-revisited/">Multi-tenancy on S#arp Architecture Revisited</a> for a better solution</p>
+
+<p>Recently I’ve been working on adding multi-tenancy to a web application based on the excellent <a title="S#arp Architecture" href="http://sharparchitecture.net/">S#arp Architecture</a> and thought I’d share what I have so far.<a id="more"></a><a id="more-24"></a></p>
+
+<p>This implementation is mainly based on this <a title="Implementing A Multi-Tenant ASP.NET MVC Application with S#arp Architecture" href="http://thatstoday.com/a/557835">post</a> from Robert Johnson, and uses a separate database for each tenant, along with a master database to hold the details of the tenants (and anything else you wish). The main drawback with using separate databases is handling the migrations, I haven’t yet got a solution to this but will look at a way of automating it using something like <a title="Migrator.Net" href="http://code.google.com/p/migratordotnet/">Migrator.Net</a> in a future post.</p>
+
+<p>All of the domain entities inherit from SharpArch.Core.DomainModel.Entity, and I use a marker interface to indicate which entities are part of the tenant domain model.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Core.Contracts</span>
+<span class="p">{</span>
+  <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+  <span class="c1">/// Marker interface for multi tenant entities.</span>
+  <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">IMultiTenantEntity</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>We can now create our domain entities for the tenants:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">NHibernate.Validator.Constraints</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Core.DomainModel</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Core.Contracts</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Core</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">Customer</span> <span class="p">:</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">IMultiTenantEntity</span>
+  <span class="p">{</span>
+<span class="na">    [DomainSignature]</span>
+<span class="na">    [NotNullNotEmpty]</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">Code</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">    [DomainSignature]</span>
+<span class="na">    [NotNullNotEmpty]</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>And we create an entity, to be stored in the master database, to represent each tenant:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">SharpArch.Core.DomainModel</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Core</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">Tenant</span> <span class="p">:</span> <span class="n">Entity</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">    [DomainSignature]</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">Domain</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">ConnectionString</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The application will make use of a separate NHibernate session for each tenant, identified by a key. For the master database the default session will be used. So, we create an interface that will provide access to the key:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">ITenantContext</span>
+  <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">Key</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>And we implement this interface based on the method we choose to identify tenants, in this case based on the subdomain:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Web.Services</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">TenantContext</span> <span class="p">:</span> <span class="n">ITenantContext</span>
+  <span class="p">{</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">DefaultStorageKey</span> <span class="p">=</span> <span class="s">&quot;tenant-context-key&quot;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Key</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">StoredKey</span><span class="p">))</span> <span class="p">{</span>
+          <span class="n">StoredKey</span> <span class="p">=</span> <span class="n">KeyFromRequest</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">StoredKey</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">set</span> <span class="p">{</span> <span class="n">StoredKey</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">KeyFromRequest</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">host</span> <span class="p">=</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Headers</span><span class="p">[</span><span class="s">&quot;HOST&quot;</span><span class="p">];</span>
+        <span class="kt">var</span> <span class="n">domains</span> <span class="p">=</span> <span class="n">host</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">domains</span><span class="p">.</span><span class="n">Length</span> <span class="p">&amp;</span><span class="n">gt</span><span class="p">;=</span> <span class="m">3</span> <span class="p">?</span> <span class="n">domains</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">:</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="kt">string</span> <span class="n">StoredKey</span>
+    <span class="p">{</span>
+      <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">DefaultStorageKey</span><span class="p">]</span> <span class="k">as</span> <span class="kt">string</span><span class="p">;</span> <span class="p">}</span>
+      <span class="k">set</span> <span class="p">{</span> <span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Items</span><span class="p">[</span><span class="n">DefaultStorageKey</span><span class="p">]</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>If a different method of identifying tenants is required, say by a query string parameter, then it is just a case of providing a different implementation of ITenantContext.</p>
+
+<p>We can now create a multi-tenant repository that uses ITenantContext to select the NHibernate session based on the key:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">NHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Data.Repositories</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">MultiTenantRepository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">:</span> <span class="n">Repository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span>
+  <span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">ITenantContext</span> <span class="n">_tenantContext</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">MultiTenantRepository</span><span class="p">(</span><span class="n">ITenantContext</span> <span class="n">tenantContext</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">_tenantContext</span> <span class="p">=</span> <span class="n">tenantContext</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">override</span> <span class="n">ISession</span> <span class="n">Session</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">key</span> <span class="p">=</span> <span class="n">_tenantContext</span><span class="p">.</span><span class="n">Key</span><span class="p">;</span>
+        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="p">?</span> <span class="k">base</span><span class="p">.</span><span class="n">Session</span> <span class="p">:</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">CurrentFor</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Next we need to create a repository interface:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">MvcContrib.Pagination</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Core.PersistenceSupport</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Core.RepositoryInterfaces</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">ICustomerRepository</span> <span class="p">:</span> <span class="n">IRepository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span>
+  <span class="p">{</span>
+    <span class="n">IPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">GetPagedList</span><span class="p">(</span><span class="kt">int</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>and implementation for our multi-tenant entities:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">MvcContrib.Pagination</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">NHibernate.Criterion</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Core.RepositoryInterfaces</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Data.Repositories</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">CustomerRepository</span> <span class="p">:</span> <span class="n">MultiTenantRepository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;,</span> <span class="n">ICustomerRepository</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="nf">CustomerRepository</span><span class="p">(</span><span class="n">ITenantContext</span> <span class="n">tenantContext</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">tenantContext</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">IPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">GetPagedList</span><span class="p">(</span><span class="kt">int</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">firstResult</span> <span class="p">=</span> <span class="p">(</span><span class="n">pageIndex</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">*</span> <span class="n">pageSize</span><span class="p">;</span>
+      <span class="kt">var</span> <span class="n">customers</span> <span class="p">=</span> <span class="n">Session</span><span class="p">.</span><span class="n">QueryOver</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;()</span>
+        <span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">customer</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">customer</span><span class="p">.</span><span class="n">Code</span><span class="p">).</span><span class="n">Asc</span>
+        <span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="n">firstResult</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">Take</span><span class="p">(</span><span class="n">pageSize</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">Future</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+
+      <span class="kt">var</span> <span class="n">totalCount</span> <span class="p">=</span> <span class="n">Session</span><span class="p">.</span><span class="n">QueryOver</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;()</span>
+        <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">Projections</span><span class="p">.</span><span class="n">Count</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">customer</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">customer</span><span class="p">.</span><span class="n">Code</span><span class="p">))</span>
+        <span class="p">.</span><span class="n">FutureValue</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+
+      <span class="k">return</span> <span class="k">new</span> <span class="n">CustomPagination</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Customer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="n">customers</span><span class="p">,</span> <span class="n">pageIndex</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">totalCount</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Our controllers can now make use of ICustomerRepository without having to worry about any of the multi-tenancy issues.</p>
+
+<p>We also need to update the TransactionAttribute so that it makes use of the appropriate NHibernate session:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">Microsoft.Practices.ServiceLocation</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">TransactionAttribute</span> <span class="p">:</span> <span class="n">SharpArch</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">NHibernate</span><span class="p">.</span><span class="n">TransactionAttribute</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="nf">TransactionAttribute</span><span class="p">()</span>
+      <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">FactoryKey</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">FactoryKey</span>
+    <span class="p">{</span>
+      <span class="k">get</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">tenantContext</span> <span class="p">=</span> <span class="n">ServiceLocator</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">GetInstance</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">ITenantContext</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+        <span class="k">return</span> <span class="n">tenantContext</span><span class="p">.</span><span class="n">Key</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Next up, we need to update the initialisation in Global.asax.cs so that we create a session factory for the master database and also for each tenant:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">void</span> <span class="nf">InitializeNHibernateSession</span><span class="p">()</span>
+        <span class="p">{</span>
+          <span class="kt">var</span> <span class="n">mappingAssemblies</span> <span class="p">=</span> <span class="k">new</span> <span class="p">[]</span> <span class="p">{</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;~/bin/SharpArchitecture.MultiTenant.Data.dll&quot;</span><span class="p">)</span> <span class="p">};</span>
+
+          <span class="kt">var</span> <span class="n">configFile</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;~/NHibernate.config&quot;</span><span class="p">);</span>
+          <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span>
+                <span class="n">webSessionStorage</span><span class="p">,</span>
+                <span class="n">mappingAssemblies</span><span class="p">,</span>
+                <span class="k">new</span> <span class="nf">AutoPersistenceModelGenerator</span><span class="p">().</span><span class="n">Generate</span><span class="p">(),</span>
+                <span class="n">configFile</span><span class="p">);</span>
+
+            <span class="kt">var</span> <span class="n">tenantConfigFile</span> <span class="p">=</span> <span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;~/NHibernate.tenant.config&quot;</span><span class="p">);</span>
+            <span class="kt">var</span> <span class="n">multiTenantInitializer</span> <span class="p">=</span> <span class="n">ServiceLocator</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">GetInstance</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">IMultiTenantInitializer</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;();</span>
+            <span class="n">multiTenantInitializer</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">mappingAssemblies</span><span class="p">,</span> <span class="k">new</span> <span class="n">MultiTenantAutoPersistenceModelGenerator</span><span class="p">(),</span>  <span class="n">tenantConfigFile</span><span class="p">);</span>
+        <span class="p">}</span></code></pre></div>
+
+<p>In the code above, the standard NHibernate.config file is used to configure the master database. Whilst NHibernate.tenant.config, along with the connection string provided by the Tenant, is used to configure the tenant databases:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate.FluentNHibernate</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">interface</span> <span class="n">IMultiTenantInitializer</span>
+  <span class="p">{</span>
+    <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">IAutoPersistenceModelGenerator</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tenantConfigFile</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">NHibernate.Cfg</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Core.PersistenceSupport</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArch.Data.NHibernate.FluentNHibernate</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.Services</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Framework.NHibernate</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">MultiTenantInitializer</span> <span class="p">:</span> <span class="n">IMultiTenantInitializer</span>
+  <span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">IRepository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Tenant</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">_tenantRepository</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">MultiTenantInitializer</span><span class="p">(</span><span class="n">IRepository</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Tenant</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">tenantRepository</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">_tenantRepository</span> <span class="p">=</span> <span class="n">tenantRepository</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">IAutoPersistenceModelGenerator</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tenantConfigFile</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">tenants</span> <span class="p">=</span> <span class="n">_tenantRepository</span><span class="p">.</span><span class="n">GetAll</span><span class="p">();</span>
+      <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">tenant</span> <span class="k">in</span> <span class="n">tenants</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Initialize</span><span class="p">(</span><span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="n">tenantConfigFile</span><span class="p">,</span> <span class="n">tenant</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">IAutoPersistenceModelGenerator</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tenantConfigFile</span><span class="p">,</span> <span class="n">Tenant</span> <span class="n">tenant</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">properties</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span>
+                         <span class="p">{</span>
+                           <span class="p">{</span> <span class="s">&quot;connection.connection_string&quot;</span><span class="p">,</span> <span class="n">tenant</span><span class="p">.</span><span class="n">ConnectionString</span> <span class="p">}</span>
+                         <span class="p">};</span>
+      <span class="n">AddTenantConfiguration</span><span class="p">(</span><span class="n">tenant</span><span class="p">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="n">tenantConfigFile</span><span class="p">,</span> <span class="n">properties</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Configuration</span> <span class="nf">AddTenantConfiguration</span><span class="p">(</span><span class="kt">string</span> <span class="n">factoryKey</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">mappingAssemblies</span><span class="p">,</span> <span class="n">IAutoPersistenceModelGenerator</span> <span class="n">modelGenerator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">cfgFile</span><span class="p">,</span> <span class="n">IDictionary</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">cfgProperties</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">NHibernateSession</span><span class="p">.</span><span class="n">AddConfiguration</span><span class="p">(</span><span class="n">factoryKey</span><span class="p">,</span>
+        <span class="n">mappingAssemblies</span><span class="p">,</span>
+        <span class="n">modelGenerator</span><span class="p">.</span><span class="n">Generate</span><span class="p">(),</span>
+        <span class="n">cfgFile</span><span class="p">,</span>
+        <span class="n">cfgProperties</span><span class="p">,</span>
+        <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This code iterates through the list of tenants from the master database, setting the connection string and session factory key from the tenant properties and adds the configuration to NHibernate.</p>
+
+<p>All that is left is to generate the mappings. In AutoPersistenceModelGenerator we move the creation of the standard mapping configuration into a method so that it can be overridden:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">protected</span> <span class="k">virtual</span> <span class="n">IAutomappingConfiguration</span> <span class="nf">GetAutomappingConfiguration</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nf">AutomappingConfiguration</span><span class="p">();</span>
+    <span class="p">}</span></code></pre></div>
+
+<p>And derive from AutoPersistenceModelGenerator to create our multi-tenant mapping configuration:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">FluentNHibernate.Automapping</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Data.NHibernateMaps</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">MultiTenantAutoPersistenceModelGenerator</span> <span class="p">:</span> <span class="n">AutoPersistenceModelGenerator</span>
+  <span class="p">{</span>
+    <span class="k">protected</span> <span class="k">override</span> <span class="n">IAutomappingConfiguration</span> <span class="nf">GetAutomappingConfiguration</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nf">MultiTenantAutomappingConfiguration</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Then we add a method to AutomappingConfiguration to determine if a type is a multi-tenant entity (by checking to see if the type implements our IMultiTenantEntity interface):</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsMultiTenantEntity</span><span class="p">(</span><span class="n">Type</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">GetInterfaces</span><span class="p">().</span><span class="n">Any</span><span class="p">(</span><span class="n">x</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">x</span> <span class="p">==</span> <span class="k">typeof</span><span class="p">(</span><span class="n">IMultiTenantEntity</span><span class="p">));</span>
+    <span class="p">}</span></code></pre></div>
+
+<p>and update the ShouldMap method to only map entities that are not multi-tenant:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">override</span> <span class="kt">bool</span> <span class="nf">ShouldMap</span><span class="p">(</span><span class="n">Type</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">isMultiTenantEntity</span> <span class="p">=</span> <span class="n">IsMultiTenantEntity</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+      <span class="kt">var</span> <span class="n">shouldMap</span> <span class="p">=</span> <span class="n">type</span><span class="p">.</span><span class="n">GetInterfaces</span><span class="p">().</span><span class="n">Any</span><span class="p">(</span><span class="n">x</span> <span class="p">=&amp;</span><span class="n">gt</span><span class="p">;</span>
+                                      <span class="n">x</span><span class="p">.</span><span class="n">IsGenericType</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">x</span><span class="p">.</span><span class="n">GetGenericTypeDefinition</span><span class="p">()</span> <span class="p">==</span> <span class="k">typeof</span> <span class="p">(</span><span class="n">IEntityWithTypedId</span><span class="p">&amp;</span><span class="n">lt</span><span class="p">;&amp;</span><span class="n">gt</span><span class="p">;)</span> <span class="p">&amp;</span><span class="n">amp</span><span class="p">;&amp;</span><span class="n">amp</span><span class="p">;</span>
+                                      <span class="p">!</span><span class="n">isMultiTenantEntity</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">shouldMap</span><span class="p">;</span>
+    <span class="p">}</span></code></pre></div>
+
+<p>It is then a case of deriving from AutomappingConfiguration to map the multi-tenant entities:</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">SharpArchitecture.MultiTenant.Data.NHibernateMaps</span>
+<span class="p">{</span>
+  <span class="c1">/// &amp;lt;summary&amp;gt;</span>
+  <span class="c1">///</span>
+  <span class="c1">/// &amp;lt;/summary&amp;gt;</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">MultiTenantAutomappingConfiguration</span> <span class="p">:</span> <span class="n">AutomappingConfiguration</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">bool</span> <span class="nf">ShouldMap</span><span class="p">(</span><span class="n">Type</span> <span class="n">type</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">shouldMap</span> <span class="p">=</span> <span class="n">IsMultiTenantEntity</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">shouldMap</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>A <a title="sample application" href="https://github.com/yellowfeather/SharpArchitecture-MultiTenant">sample application</a> is available on GitHub.</p>
+]]></content>
+  </entry>
+  
+</feed>

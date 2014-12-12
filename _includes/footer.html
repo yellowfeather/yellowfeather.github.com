@@ -1,0 +1,41 @@
+<footer class="footer">
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <ul class="follow-us-links">
+      <li><h3>Follow Us</h3></li>
+      <li><a href="http://twitter.com/{{ site.twitter_username }}">Twitter {% include svg-icons/twitter.html %}</a></li>
+      <li><a href="http://uk.linkedin.com/pub/chris-richards/1/548/52a/">LinkedIn {% include svg-icons/linkedin.html %}</a></li>
+      <li><a href="http://github.com/{{ site.github_username }}">GitHub {% include svg-icons/github.html %}</a></li>
+      <li><a href="http://stackoverflow.com/users/251441/chrisr">StackOverflow {% include svg-icons/stackoverflow.html %}</a></li>
+    </ul>
+    <ul>
+      <li><h3>Contact Us</h3></li>
+      <li class="contact-us">
+        <p>
+          <strong>Yellow Feather Ltd</strong><br />
+          23 Fairfield Road<br />
+          Winchester<br />
+          Hampshire<br />
+          SO22 6SF<br />
+          United Kingdom
+        </p>
+        <p>
+          Telephone: +44 (0) 1962 853322
+          <br>
+          Email:
+          <a href="mailto:hello@yellowfeather.co.uk" title="Email">hello@yellowfeather.co.uk</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+  <p>Copyright &copy; {{ site.time | date: "%Y" }} - {{ site.author }}</p>
+</footer>

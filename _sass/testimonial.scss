@@ -1,0 +1,32 @@
+.testimonial {
+  $testimonial-gutter: 1.4em;
+  $testimonial-image-padding: .7em;
+  $testimonial-image-width: 4em;
+  $testimonial-color: lighten($base-font-color, 20);
+  $testimonial-background: #f9f9f9;
+  $testimonial-author-color: transparentize($testimonial-color, .5);
+  $testimonial-image-vert-alignment: top;
+  $testimonial-width: 80%;
+
+  background-color: $testimonial-background;
+  color: $testimonial-color;
+  margin-bottom: $base-spacing;
+  padding: 2em;
+
+  blockquote {
+    font-size: 1.7em;
+    line-height: 1.35em;
+    margin: 0 auto;
+    width: $testimonial-width;
+  }
+
+  p.author {
+    color: $testimonial-author-color;
+    font-style: italic;
+    font-size: .9em;
+    text-align: right;
+    margin: 0 auto;
+    width: $testimonial-width;
+  }
+}
+

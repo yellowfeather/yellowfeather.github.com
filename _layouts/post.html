@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}
+{% endif %}
+
+<div class="intro-text">
+  <h2>{{ page.title }}</h2>
+  <p>{{ page.date | date: "%-d %B, %Y" }} by {{ author.display_name }}</p>
+</div>
+
+<div class="yellowfeather-wrapper">
+  {{ content }}
+  {% include disqus.html %}
+</div>
