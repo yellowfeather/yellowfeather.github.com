@@ -5,22 +5,16 @@ date:   2014-10-06 22:32:51
 categories: website update
 author: yellowfeather
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve --watch`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Welcome to the new Yellow Feather website! We've been busy updating the website to make it reflect our current activities and also make it easier to update. It is still a work in progress, if you notice any issues please let us know!
 
-Jekyll also offers powerful support for code snippets:
+For the technically minded, the site is a static website, built using [jekyll](http://jekyllrb.com) and hosted on [GitHub pages](https://pages.github.com) all for free! The source is publicly available on [GitHub](https://github.com/yellowfeather/yellowfeather.github.com).
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+The site also makes use of the excellent Sass libraries from [thoughtbot](http://thoughtbot.com):
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+- Bourbon: http://bourbon.io
+- Neat: http://neat.bourbon.io
+- Bitters: http://bitters.bourbon.io
+- Refills: http://refills.bourbon.io
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+This is the first time that I've used these and I'm really impressed, they make generating clean, semantic HTML a breeze.
