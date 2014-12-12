@@ -1,4 +1,5 @@
 !.keep
 *.DS_Store
 /.sass-cache/*
+/_site/*
 /tmp/*
