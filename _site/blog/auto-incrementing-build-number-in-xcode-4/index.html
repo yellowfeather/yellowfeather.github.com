@@ -6,12 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Auto incrementing build number in Xcode 4</title>
-    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Professional web and mobile software developmensional web and mobile software development. Winchester, Hampshire, United Kingdom
 ">
 
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-4/">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var menu = $('#navigation-menu');
+        var menuToggle = $('#js-mobile-menu');
+        var signUp = $('.sign-up');
+
+        $(menuToggle).on('click', function(e) {
+          e.preventDefault();
+          menu.slideToggle(function(){
+            if(menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+          });
+        });
+
+        // underline under the active nav item
+        $(".nav .nav-link").click(function() {
+          $(".nav .nav-link").each(function() {
+            $(this).removeClass("active-nav-item");
+          });
+          $(this).addClass("active-nav-item");
+          $(".nav .more").removeClass("active-nav-item");
+        });
+      });
+    </script>
 </head>
 
   <body>
