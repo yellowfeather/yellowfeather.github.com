@@ -8,6 +8,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yellowfeather.co.uk" # the base hostname & protocol for your site
 author: Yellow Feather Ltd
 
+exclude: ['README.md', 'CNAME', 'Gemfile.lock', 'Gemfile']
+
 twitter_username: yellowfeatheruk
 github_username:  yellowfeather
 
