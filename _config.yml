@@ -30,3 +30,6 @@ permalink: /blog/:title/
 
 gems:
   - jekyll-sitemap
+
+sass:
+    style: :compressed
