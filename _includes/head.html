@@ -6,13 +6,11 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <script async src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script async src="//www.google-analytics.com/ga.js"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
+      function pageInit() {
         var menu = $('#navigation-menu');
         var menuToggle = $('#js-mobile-menu');
         var signUp = $('.sign-up');
@@ -34,6 +32,8 @@
           $(this).addClass("active-nav-item");
           $(".nav .more").removeClass("active-nav-item");
         });
-      });
+      };
     </script>
+    <script async src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" onLoad="pageInit()"></script>
+    <script async src="//www.google-analytics.com/ga.js"></script>
 </head>
