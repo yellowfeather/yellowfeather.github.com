@@ -9,6 +9,8 @@ alias: /2013/03/auto-incrementing-build-number-in-xcode-4/index.html
 author: chrisr
 ---
 
+Updated: Please see [Auto incrementing build number in Xcode revisited]({% post_url 2015-07-29-auto-incrementing-build-number-in-xcode-revisited %})
+
 I've recently been doing a bit of iOS development and have started using <a href="http://hockeyapp.net/" title="HockeyApp" target="_blank">HockeyApp</a> for distributing beta versions and collecting crash reports. Hockey requires that your builds have a unique version number, they have a great knowledge base article showing <a href="http://support.hockeyapp.net/kb/how-tos-faq/how-to-do-versioning-for-beta-versions-on-ios-or-mac" title="How to do versioning for beta versions on iOS or Mac" target="_blank">How to do versioning for beta versions on iOS or Mac</a>. The only problem I found with their solution was that the file containing the build number needs to exist beforehand. So, here's an update to the script to create the file if it doesn't already exist:
 
 {% highlight sh %}
