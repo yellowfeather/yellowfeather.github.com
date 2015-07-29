@@ -8,7 +8,7 @@ categories: [iOS, Xcode]
 author: chrisr
 ---
 
-For sometime now, I've been using the script in the post [The Best of All Possible Xcode Automated Build Numbering Techniques](http://blog.jaredsinclair.com/post/97193356620/the-best-of-all-possible-xcode-automated-build) to automatically update the build number in XCode.
+For sometime now, I've been using the script in the post [The Best of All Possible Xcode Automated Build Numbering Techniques](http://blog.jaredsinclair.com/post/97193356620/the-best-of-all-possible-xcode-automated-build) to automatically update the build number in Xcode based on the number of git commits.
 Unfortunately this script doesn't update the version number in the dSYM bundle, which causes Hockey to complain when uploading a new build.
 A quick search found the answer in a comment on this post [A sensible way to increment bundle version (CFBundleVersion) in Xcode](http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/)
 
