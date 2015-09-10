@@ -1,4 +1,5 @@
 # Site settings
+name: Yellow Feather Ltd
 title: Yellow Feather Ltd
 email: chris@yellowfeather.com
 description: > # this means to ignore newlines until "baseurl:"
