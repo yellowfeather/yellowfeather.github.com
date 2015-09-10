@@ -29,7 +29,11 @@ highlighter: pygments
 permalink: /blog/:title/
 
 gems:
+  - jekyll-feed
   - jekyll-sitemap
 
 sass:
     style: :compressed
+
+feed:
+  path: atom.xml
