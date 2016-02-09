@@ -24,7 +24,9 @@ google_analytics_tracking_id: UA-85823-1
 # Build settings
 markdown: kramdown
 
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Outputting
 permalink: /blog/:title/
