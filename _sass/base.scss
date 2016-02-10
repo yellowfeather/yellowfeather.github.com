@@ -28,7 +28,7 @@ a.button {
 }
 
 .intro-text {
-  $intro-text-width: 70%;
+  $intro-text-width: 90%;
 
   margin-bottom: 3em;
   margin-top: 3em;
@@ -89,7 +89,10 @@ a.button {
   }
 
   p {
+    font-size: 1.4em;
     margin: auto;
+    margin-bottom: 1em;
+    text-align: left;
 
     @include media($large-screen) {
       width: $intro-text-width;
@@ -103,6 +106,20 @@ a.button {
       span {
         font-size: 1.3em;
         line-height: 0;
+      }
+    }
+  }
+
+  hr {
+    border: 1px solid transparentize($base-font-color, .8);
+    margin: 0 auto $base-spacing;
+    width: 24em;
+  }
+
+  ul {
+    li {
+      h4 {
+        text-align: left;
       }
     }
   }
