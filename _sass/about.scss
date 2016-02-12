@@ -32,6 +32,11 @@ $side-image-border: 1px solid darken(transparentize($side-image-background-botto
       @include span-columns(8);
       padding: 4em 4em 8em 4em;
     }
+
+    a {
+      font-size: 1em;
+      text-transform: none;
+    }
   }
 
   .content h1 {
@@ -53,12 +58,15 @@ $side-image-border: 1px solid darken(transparentize($side-image-background-botto
     color: gray;
     margin-bottom: 1em;
   }
+
   .content ul {
     color: gray;
+    font-size: 1.4em;
     margin-bottom: 1em;
     margin-left: 3em;
     list-style-type: disc;
   }
+
   @include reset-display();
 }
 

@@ -34,6 +34,41 @@ a.button {
   margin-top: 3em;
   text-align: center;
 
+  h4 {
+    color: lighten($base-font-color, 20);
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.4em;
+    margin: 0 auto 1em;
+
+    @include media($large-screen) {
+      font-size: 1.7em;
+      line-height: 1.35em;
+      margin: 0 auto 1em;
+      width: $intro-text-width;
+    }
+
+    a {
+      border-bottom: dashed 1px lighten($base-font-color, 20);
+      border-color: lighten($base-font-color, 20);
+      color: lighten($base-font-color, 20);
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: solid 1px lighten($base-font-color, 20);
+        color: black;
+      }
+    }
+
+  }}
+
+.content {
+  $intro-text-width: 90%;
+
+  margin-bottom: 3em;
+  margin-top: 3em;
+  text-align: center;
+
   h2 {
     font-family: $serif;
     font-weight: 100;
@@ -118,6 +153,8 @@ a.button {
 
   ul {
     li {
+      text-align: left;
+
       h4 {
         text-align: left;
       }
@@ -128,10 +165,19 @@ a.button {
 section.contact {
   @include outer-container;
   margin-top: 1em;
+  text-align: center;
+
+  form { 
+    margin: 2em 4em;
+    input[type="submit"] {
+       display: block;
+    }
+  }
 
   fieldset { @include span-columns(7); }
   .contact-details {
     @include span-columns(5);
+    text-align: left;
   }
 }
 
