@@ -171,6 +171,26 @@ a.button {
   }
 }
 
+section.contact {
+  @include outer-container;
+  margin-top: 1em;
+  text-align: center;
+
+  form {
+    margin: 2em 4em;
+
+     input[type="submit"] {
+        display: block;
+     }
+   }
+
+  fieldset { @include span-columns(7); }
+    .contact-details {
+     @include span-columns(5);
+     text-align: left;
+   }
+}
+
 ul.follow-us-links {
   li {
     margin-top: 0.5em;
