@@ -36,9 +36,7 @@ a.button {
 
   h4 {
     color: lighten($base-font-color, 20);
-    font-size: 1.3em;
     font-weight: 300;
-    line-height: 1.4em;
     margin: 0 auto 1em;
 
     @include media($large-screen) {
@@ -75,7 +73,6 @@ a.button {
     margin-bottom: .3em;
 
     @include media($large-screen) {
-      font-size: 3em;
       margin-bottom: .4em;
     }
   }
@@ -84,7 +81,6 @@ a.button {
     background: $base-accent-color;
     color: white;
     display: inline-block;
-    font-size: .7em;
     font-weight: 800;
     margin-bottom: 2em;
     padding: 3px 8px;
@@ -97,13 +93,11 @@ a.button {
 
   h4 {
     color: lighten($base-font-color, 20);
-    font-size: 1.3em;
     font-weight: 300;
     line-height: 1.4em;
     margin: 0 auto 1em;
 
     @include media($large-screen) {
-      font-size: 1.7em;
       line-height: 1.35em;
       margin: 0 auto 1em;
       width: $intro-text-width;
@@ -124,7 +118,6 @@ a.button {
   }
 
   p {
-    font-size: 1.4em;
     margin: auto;
     margin-bottom: 1em;
     text-align: left;
