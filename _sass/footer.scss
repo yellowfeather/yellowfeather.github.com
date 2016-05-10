@@ -24,6 +24,10 @@
     @include media($medium-screen) {
       @include shift(3);
     }
+
+    li {
+      padding: 5px 0;
+    }
   }
 
   ul {
