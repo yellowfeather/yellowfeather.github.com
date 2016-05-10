@@ -6,12 +6,17 @@ description: > # this means to ignore newlines until "baseurl:"
   I help aerospace MRO's and parts suppliers improve their operational efficiency with modern ERP and reporting software built on top of legacy systems
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yellowfeather.co.uk" # the base hostname & protocol for your site
-author: Yellow Feather Ltd
+author: yellowfeatheruk
+
+logo: img/logo.png
 
 exclude: ['README.md', 'CNAME', 'Gemfile.lock', 'Gemfile']
 
-twitter_username: yellowfeatheruk
-github_username:  yellowfeather
+twitter:
+  username: yellowfeatheruk
+
+github:
+  username:  yellowfeather
 
 # Disqus Comments
 disqus_short_name: yellowfeather
@@ -33,6 +38,7 @@ permalink: /blog/:title/
 gems:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 sass:
   style: :compressed
