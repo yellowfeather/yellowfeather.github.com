@@ -1,10 +1,11 @@
 ---
-layout: post
-published: true
 title: Userland SPI on the BeagleBone with Ubuntu
-categories: BeagleBone
+date: 2012-03-26 00:00:00 Z
+categories:
+- BeagleBone
+layout: post
 comments: true
-alias: /2012/03/userland-spi-on-the-beaglebone-with-ubuntu/
+alias: "/2012/03/userland-spi-on-the-beaglebone-with-ubuntu/"
 author: chrisr
 ---
 

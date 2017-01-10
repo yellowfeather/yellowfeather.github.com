@@ -1,10 +1,11 @@
 ---
-layout: post
-published: true
 title: Git Workflow – Branch per feature
+date: 2012-08-31 00:00:00 Z
+categories:
+- git
+layout: post
 comments: true
-categories: git
-alias: /2012/08/git-workflow-branch-per-feature/
+alias: "/2012/08/git-workflow-branch-per-feature/"
 author: chrisr
 ---
 

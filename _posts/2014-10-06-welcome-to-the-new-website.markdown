@@ -1,8 +1,10 @@
 ---
+title: Welcome to the new website!
+date: 2014-10-06 22:32:51 Z
+categories:
+- website
+- update
 layout: post
-title:  "Welcome to the new website!"
-date:   2014-10-06 22:32:51
-categories: website update
 author: yellowfeather
 ---
 

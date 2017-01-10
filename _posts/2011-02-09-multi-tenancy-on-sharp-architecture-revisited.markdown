@@ -1,10 +1,12 @@
 ---
-layout: post
-published: true
 title: Multi-tenancy on S#arp Architecture Revisited
-categories: [ 'Sharp Architecture', 'Multi-tenancy' ]
+date: 2011-02-09 00:00:00 Z
+categories:
+- Sharp Architecture
+- Multi-tenancy
+layout: post
 comments: true
-alias: /2011/02/multi-tenancy-on-sharp-architecture-revisited/
+alias: "/2011/02/multi-tenancy-on-sharp-architecture-revisited/"
 author: chrisr
 ---
 

@@ -1,6 +1,7 @@
 ---
-layout: null
+layout: 
 ---
+
 User-agent: *
 Disallow:
 

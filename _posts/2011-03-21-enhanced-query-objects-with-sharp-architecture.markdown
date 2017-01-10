@@ -1,10 +1,12 @@
 ---
-layout: post
-published: true
 title: Enhanced query objects with S#arp Architecture
-categories: [ Sharp Architecture, Enhanced Query Objects ]
+date: 2011-03-21 00:00:00 Z
+categories:
+- Sharp Architecture
+- Enhanced Query Objects
+layout: post
 comments: true
-alias: /2011/03/enhanced-query-objects-with-sharp-architecture/
+alias: "/2011/03/enhanced-query-objects-with-sharp-architecture/"
 author: chrisr
 ---
 

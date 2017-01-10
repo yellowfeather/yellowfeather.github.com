@@ -1,9 +1,11 @@
 ---
+title: Getting Mono running on an Amazon Linux AMI
+date: 2013-09-04 14:15:00 Z
+categories:
+- Amazon AWS
+- Mono
 layout: post
-title: "Getting Mono running on an Amazon Linux AMI"
-date: 2013-09-04 14:15
 comments: true
-categories: [Amazon AWS, Mono]
 author: chrisr
 ---
 

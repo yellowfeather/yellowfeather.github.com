@@ -1,10 +1,12 @@
 ---
-layout: post
-published: true
 title: 3D print job notifications in Slack with Octoprint
-date: 2016-06-03 20:57
+date: 2016-06-03 20:57:00 Z
+categories:
+- lulzbot
+- octoprint
+- slack
+layout: post
 comments: true
-categories: [lulzbot, octoprint, slack]
 author: chrisr
 ---
 

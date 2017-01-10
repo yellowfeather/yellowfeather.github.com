@@ -1,9 +1,8 @@
 ---
+title: Web site moved to Octopress
+date: 2013-04-05 01:14:00 Z
 layout: post
-title: "Web site moved to Octopress"
-date: 2013-04-05 01:14
 comments: true
-categories:
 author: yellowfeather
 ---
 

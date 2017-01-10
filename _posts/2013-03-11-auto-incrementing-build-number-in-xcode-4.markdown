@@ -1,11 +1,12 @@
 ---
-layout: post
-published: true
 title: Auto incrementing build number in Xcode 4
-date: 2013-03-11 22:54
+date: 2013-03-11 22:54:00 Z
+categories:
+- iOS
+- Xcode
+layout: post
 comments: true
-categories: [iOS, Xcode]
-alias: /2013/03/auto-incrementing-build-number-in-xcode-4/index.html
+alias: "/2013/03/auto-incrementing-build-number-in-xcode-4/index.html"
 author: chrisr
 ---
 
