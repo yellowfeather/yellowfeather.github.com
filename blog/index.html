@@ -1,26 +1,65 @@
 ---
 layout: blog
 title: Blog
-permalink: /blog/
 ---
 
-<div class="yellowfeather-wrapper">
-  <div itemscope itemtype="http://schema.org/Blog">
-    {% for post in site.posts %}
+<!-- Post list -->
+{% for post in paginator.posts %}
       {% assign author = site.data.authors[post.author] %}
-      <div class="post-summary">
-        <div class="post-summary-image">
-          <img src="/img/{{ author.image_filename }}" alt="Photo of author">
-        </div>
-        <div class="post-summary-content">
-          <h1><a class="post-summary-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-          <p>{{  post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
-          <p class="post-summary-detail">{{ post.date | date: "%-d %B, %Y" }} by {{ author.display_name }}</p>
-        </div>
-      </div>
-    {% endfor %}
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/atom.xml" | prepend: site.baseurl }}">via RSS</a></p>
+<article>
+	<header>
+		<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+		<p>{{ post.date | date: "%B %-d, %Y" }} by {{ author.display_name }}</p>
+	</header>
+	{{ post.excerpt }}
+	<ul class="actions">
+		<li><a href="{{ site.baseurl }}{{ post.url }}" class="button">Read More</a></li>
+	</ul>
+</article>
 
-  </div>
-</div>
+{% unless forloop.last %}
+	<hr class="major" />
+{% endunless %}
+
+{% endfor %}
+
+<!-- Pagination -->
+{% if paginator.total_pages > 1 %}
+
+	<hr class="major" />
+	<ul class="pagination">
+
+		{% if paginator.previous_page %}
+			<li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button">Prev</a></li>
+		{% else %}
+			<li><span class="button disabled">Prev</span></li>
+		{% endif %}
+
+		{% for page in (1..paginator.total_pages) %}
+
+			{% if page == paginator.page %}
+				{% assign class = 'page active' %}
+			{% else %}
+				{% assign class = 'page' %}
+			{% endif %}
+
+			{% if page == 1 %}
+				{% assign href = site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: '/page:num', '' %}
+			{% else %}
+				{% assign href = site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page %}
+			{% endif %}
+
+			<li><a href="{{ href }}" class="{{ class }}">{{ page }}</a></li>
+
+		{% endfor %}
+
+		{% if paginator.next_page %}
+			<li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button">Next</a></li>
+		{% else %}
+			<li><span class="button disabled">Next</span></li>
+		{% endif %}
+
+	</ul>
+
+{% endif %}

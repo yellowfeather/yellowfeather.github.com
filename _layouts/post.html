@@ -1,17 +1,17 @@
 ---
-layout: default
+layout: page
 ---
 
-{% if page.author %}
-  {% assign author = site.data.authors[page.author] %}
+<header>
+	<h1>{{ page.title }}</h1>
+	<p>{{ page.date | date: "%B %-d, %Y" }}</p>
+</header>
+
+{% if page.image %}
+	<span class="image fit">
+		<img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.title }}">
+	</span>
 {% endif %}
 
-<div class="intro-text">
-  <h2>{{ page.title }}</h2>
-  <p>{{ page.date | date: "%-d %B, %Y" }} by {{ author.display_name }}</p>
-</div>
-
-<div class="yellowfeather-wrapper">
-  {{ content }}
-  {% include disqus.html %}
-</div>
+{{ content }}
+{% include disqus.html %}
