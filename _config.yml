@@ -15,7 +15,7 @@ description: 'I help aerospace MRO''s and parts suppliers improve their operatio
 
 '
 baseurl: ''
-url: http://yellowfeather.com
+url: https://yellowfeather.com
 author: yellowfeatheruk
 logo: "/img/logo.png"
 exclude:
