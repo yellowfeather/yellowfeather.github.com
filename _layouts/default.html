@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{{ 'assets/css/ie8.css' | prepend: site.baseurl }}" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ 'assets/css/ie9.css' | prepend: site.baseurl }}" /><![endif]-->
+    <script src="https://cdn.usefathom.com/script.js" data-site="ERMREALE" defer></script>
     {% seo %}
   </head>
   <body>
-             {% include layout/header.html %}
+    {% include layout/header.html %}
 		{{ content }}
-             {% include layout/footer.html %}
-             {% include google_analytics.html %}
-             <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-             <script src="{{ site.baseurl }}/assets/js/jquery.dropotron.min.js"></script>
-             <script src="{{ site.baseurl }}/assets/js/jquery.scrollex.min.js"></script>
-             <script src="{{ site.baseurl }}/assets/js/skel.min.js"></script>
-             <script src="{{ site.baseurl }}/assets/js/util.min.js"></script>
-             <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-             <script src="{{ site.baseurl }}/assets/js/main.min.js"></script>
+    {% include layout/footer.html %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/jquery.dropotron.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/jquery.scrollex.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/skel.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/util.min.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="{{ site.baseurl }}/assets/js/main.min.js"></script>
 	</body>
 </html>
